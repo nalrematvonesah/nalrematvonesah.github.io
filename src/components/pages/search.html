@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Search</title>
+  <link rel="stylesheet" href="css/search.css">
+</head>
+<body>
+
+<nav>
+  <a href="friends.html">Friends</a> |
+  <a href="search.html" class="active">Search</a> |
+  <a href="settings.html">Settings</a>
+</nav>
+
+<h2>User Search</h2>
+
+<form class="search" onsubmit="return doSearch()">
+  <input id="searchInput" type="text" placeholder="Search users">
+  <button type="submit">Search</button>
+</form>
+
+<div id="results"></div>
+
+<footer>
+  Team: Tamerlan Khasenov • Alikhan Sekenov • Aldiyar Bazarbayev • Aldiyar Gaisa
+</footer>
+
+<script>
+  function doSearch() {
+    const input = document.getElementById("searchInput").value.trim().toLowerCase();
+    const results = document.getElementById("results");
+    results.innerHTML = "";
+    if (input === "aldiyar") {
+      results.innerHTML = `
+      <div class="card">
+        <img src="../../assets/img/ALDIYAR.jpg" alt="Aldiyar" width="250">
+        <div>Aldiyar — Online</div>
+      </div>
+    `;
+    } else if (input === "askhat") {
+      results.innerHTML = `
+      <div class="card">
+        <img src="../../assets/img/ASKHAT.jpg" alt="Askhat" width="250">
+        <div>Askhat — Offline</div>
+      </div>
+    `;
+    } else {
+      results.innerHTML = "<p>Not found</p>";
+    }
+
+    return false;
+  }
+</script>
+</body>
+</html>

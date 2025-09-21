@@ -1,0 +1,15 @@
+.settings {
+    display: grid;
+    gap: 10px;
+}
+.settings .row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #a28089;
+    border-radius: 6px;
+    background: #ffa8b6;
+}
+.settings .title {
+    font-weight: bold;
+}
