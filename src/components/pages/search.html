@@ -15,42 +15,26 @@
 
 <h2>User Search</h2>
 
-<form class="search" onsubmit="return doSearch()">
-  <input id="searchInput" type="text" placeholder="Search users">
+<form class="search" action="#" method="get">
+  <input type="text" placeholder="Search users">
+  <select>
+    <option>Relevance</option>
+    <option>Online</option>
+  </select>
   <button type="submit">Search</button>
 </form>
 
-<div id="results"></div>
+<section class="results">
+  <h3>Search Results</h3>
+  <ul>
+    <li><a href="friends.html#aldiyar">Aldiyar — Online</a></li>
+    <li><a href="friends.html#askhat">Askhat — Offline</a></li>
+  </ul>
+</section>
 
 <footer>
   Team: Tamerlan Khasenov • Alikhan Sekenov • Aldiyar Bazarbayev • Aldiyar Gaisa
 </footer>
 
-<script>
-  function doSearch() {
-    const input = document.getElementById("searchInput").value.trim().toLowerCase();
-    const results = document.getElementById("results");
-    results.innerHTML = "";
-    if (input === "aldiyar") {
-      results.innerHTML = `
-      <div class="card">
-        <img src="../../assets/img/ALDIYAR.jpg" alt="Aldiyar" width="250">
-        <div>Aldiyar — Online</div>
-      </div>
-    `;
-    } else if (input === "askhat") {
-      results.innerHTML = `
-      <div class="card">
-        <img src="../../assets/img/ASKHAT.jpg" alt="Askhat" width="250">
-        <div>Askhat — Offline</div>
-      </div>
-    `;
-    } else {
-      results.innerHTML = "<p>Not found</p>";
-    }
-
-    return false;
-  }
-</script>
 </body>
 </html>

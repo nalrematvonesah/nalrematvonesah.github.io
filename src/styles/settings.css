@@ -13,3 +13,9 @@
 .settings .title {
     font-weight: bold;
 }
+.settings input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #51e2f5;
+    cursor: pointer;
+}
