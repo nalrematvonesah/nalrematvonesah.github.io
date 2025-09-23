@@ -1,34 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Settings</title>
-    <link rel="stylesheet" href="css/settings.css">
+  <meta charset="utf-8">
+  <title>Settings | TMNTgram</title>
+  <link rel="stylesheet" href="/src/styles/settings.css">
 </head>
 <body>
-
-<nav>
-    <a href="friends.html">Friends</a> |
-    <a href="search.html">Search</a> |
-    <a href="settings.html">Settings</a>
-</nav>
-
-<h2>Profile Settings</h2>
-
-<div class="settings">
-    <div class="row">
-        <div class="title">Notifications</div>
-        <input type="checkbox" checked>
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <h1 class="logo">TMNTgram</h1>
+        <div class="nav-links">
+          <a href="homepage.html">Home</a>
+          <a href="friends.html">Friends</a>
+          <a href="search.html">Search</a>
+          <a href="#" style="font-weight:bold;">Settings</a>
+          <a href="authorization.html">Login</a>
+        </div>
+      </nav>
     </div>
-    <div class="row">
-        <div class="title">Profile Visibility</div>
-        <input type="checkbox">
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2 class="hero-title">Profile Settings</h2>
+      <p class="hero-description">Customize your TMNTgram profile and notifications.</p>
     </div>
-</div>
+  </section>
 
-<footer>
-    Team: Tamerlan Khasenov • Alikhan Sekenov • Aldiyar Bazarbayev • Aldiyar Gaisa
-</footer>
+  <section class="destinations">
+    <div class="container">
+      <h3 class="section-title">Settings</h3>
+      <div class="settings-grid">
+        <div class="settings-card">
+          <div class="settings-row">
+            <span class="settings-title">Notifications</span>
+            <input type="checkbox" checked>
+          </div>
+          <div class="settings-row">
+            <span class="settings-title">Profile Visibility</span>
+            <input type="checkbox">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>Team: Tamerlan Khasenov • Alikhan Sekenov • Aldiyar Bazarbayev • Aldiyar Gaisa</p>
+        <p>© 2025 TMNTgram. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
