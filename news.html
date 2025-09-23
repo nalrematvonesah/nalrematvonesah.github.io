@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости / Посты - Мини Социальная Сеть</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Навигационное меню -->
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Главная</a></li>
+            <li><a href="profile.html" class="nav-link">Профиль</a></li>
+            <li><a href="news.html" class="nav-link active">Новости</a></li>
+            <li><a href="friends.html" class="nav-link">Друзья</a></li>
+            <li><a href="add_post.html" class="nav-link">Добавить пост</a></li>
+            <li><a href="login.html" class="nav-link">Выход</a></li>
+        </ul>
+    </nav>
+
+    <!-- Основной контент: Лента постов -->
+    <main class="news-feed">
+        <h1 class="page-title">Новости и Посты</h1>
+        <div class="posts-container">
+            <!-- Пример поста 1 -->
+            <article class="post">
+                <div class="post-header">
+                    <img src="images/avatar1.jpg" alt="Аватарка" class="post-avatar"> <!-- Круглое изображение -->
+                    <div class="post-info">
+                        <h2 class="post-author">Хасенов Тамерлан</h2>
+                        <time class="post-time" datetime="2023-10-01">1 октября 2023</time>
+                    </div>
+                </div>
+                <p class="post-content">Привет, друзья! Сегодня отличный день для командной работы над проектом. Что вы думаете о нашей социальной сети?</p>
+                <div class="post-actions">
+                    <button class="like-btn">❤️ 5</button>
+                    <button class="comment-btn">Комментарии</button>
+                </div>
+            </article>
+
+            <!-- Пример поста 2 -->
+            <article class="post">
+                <div class="post-header">
+                    <img src="images/avatar2.jpg" alt="Аватарка" class="post-avatar">
+                    <div class="post-info">
+                        <h2 class="post-author">Алихан Секенов</h2>
+                        <time class="post-time" datetime="2023-10-02">2 октября 2023</time>
+                    </div>
+                </div>
+                <p class="post-content">Добавил новые стили в профиль. Проверьте, как выглядит редактирование!</p>
+                <div class="post-actions">
+                    <button class="like-btn">👍 3</button>
+                    <button class="comment-btn">Комментарии</button>
+                </div>
+            </article>
+
+            <!-- Пример поста 3 -->
+            <article class="post">
+                <div class="post-header">
+                    <img src="images/avatar3.jpg" alt="Аватарка" class="post-avatar">
+                    <div class="post-info">
+                        <h2 class="post-author">Алдияр Базарбаев</h2>
+                        <time class="post-time" datetime="2023-10-03">3 октября 2023</time>
+                    </div>
+                </div>
+                <p class="post-content">Работаю над постами. Форма добавления готова — минималистичный дизайн!</p>
+                <div class="post-actions">
+                    <button class="like-btn">⭐ 7</button>
+                    <button class="comment-btn">Комментарии</button>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <p>&copy; 2023 Мини Социальная Сеть. Разработано: Хасенов Тамерлан, Алихан Секенов, Алдияр Базарбаев, Алдияр Гайса</p>
+    </footer>
+</body>
+</html>
