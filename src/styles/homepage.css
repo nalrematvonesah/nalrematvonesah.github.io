@@ -1,0 +1,39 @@
+body {
+    background: #edf756;
+    color: #a28089;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+nav ul {
+    display: flex;
+    gap: 2rem;
+    background: #51e2f5;
+    list-style: none;
+    margin: 0;
+    padding: 1rem;
+    justify-content: center;
+}
+
+nav a {
+    color: #a28089;
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 1.5rem;
+    transition: background .24s, color .22s;
+}
+
+nav a:hover {
+    background: #ffa8b6;
+    color: #51e2f5;
+}
+
+footer {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #51e2f5;
+    color: #a28089;
+    text-align: center;
+    font-size: 1rem;
+    border-top: 2px solid #ffa8b6;
+}
