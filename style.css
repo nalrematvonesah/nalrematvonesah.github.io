@@ -1,0 +1,203 @@
+/* Общие стили для всего сайта (если не реализованы) */
+body {
+    font-family: system-ui, -apple-system, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* Белый для минимализма */
+    color: #a28089; /* Sand для текста */
+    line-height: 1.6;
+}
+
+.page-title {
+    text-align: center;
+    color: #51e2f5; /* Bright Blue */
+    margin: 2rem 0 1rem 0;
+    font-size: 2rem;
+}
+
+/* Навигационное меню (единое для всех страниц) */
+.navbar {
+    background-color: #51e2f5; /* Bright Blue */
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Минимальная тень */
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease; /* Эффект наведения */
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: #ffa8b6; /* Pink на hover/active */
+}
+
+/* Стили для страницы Новости/Посты */
+.news-feed {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Расстояние между постами */
+}
+
+.post {
+    background-color: #f9f9f9; /* Светлый фон */
+    border: 1px solid #ffa8b6; /* Pink граница */
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-sizing: border-box; /* Box model */
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.post-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Круглое изображение */
+    object-fit: cover;
+}
+
+.post-info {
+    flex: 1;
+}
+
+.post-author {
+    margin: 0 0 0.5rem 0;
+    color: #51e2f5; /* Blue для имени */
+}
+
+.post-time {
+    color: #a28089; /* Sand */
+    font-size: 0.9rem;
+}
+
+.post-content {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+.post-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.like-btn,
+.comment-btn {
+    background-color: #edf756; /* Dusty White/Yellow */
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Hover эффект */
+}
+
+.like-btn:hover,
+.comment-btn:hover {
+    background-color: #51e2f5; /* Blue на hover */
+    color: #ffffff;
+}
+
+/* Стили для страницы Добавление поста */
+.add-post-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    margin-bottom: 0.5rem;
+    color: #51e2f5; /* Blue */
+    font-weight: bold;
+}
+
+.form-input,
+.form-input textarea {
+    padding: 1rem;
+    border: 2px solid #ffa8b6; /* Pink граница */
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #ffffff;
+    transition: border-color 0.3s ease; /* Hover для полей */
+}
+
+.form-input:focus,
+.form-input textarea:focus {
+    outline: none;
+    border-color: #51e2f5; /* Blue на фокус */
+}
+
+.submit-btn {
+    background-color: #51e2f5; /* Blue */
+    color: #ffffff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Hover: цвет + лёгкий lift */
+    align-self: flex-start;
+}
+
+.submit-btn:hover {
+    background-color: #ffa8b6; /* Pink */
+    transform: translateY(-2px);
+}
+
+/* Футер (единый для всех страниц) */
+.footer {
+    background-color: #a28089; /* Sand */
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 3rem;
+    position: relative; /* Для sticky, если нужно */
+}
+
+/* Адаптивность (минимальная, для мобильных) */
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .posts-container {
+        gap: 1rem;
+    }
+    
+    .post {
+        padding: 1rem;
+    }
+}
