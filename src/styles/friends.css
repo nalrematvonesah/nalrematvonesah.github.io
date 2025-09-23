@@ -1,0 +1,17 @@
+.friends {
+    display: grid;
+    gap: 12px;
+}
+.friends img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.friends .card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #a28089;
+    background: #edf756;
+}
