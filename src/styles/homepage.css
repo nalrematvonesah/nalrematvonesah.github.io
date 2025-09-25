@@ -11,6 +11,62 @@ body {
   background-color: #ffffff; /* white */
 }
 
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  grid-gap: 16px; /* consistent spacing */
+  padding: 16px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden; /* required for overlay effect */
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+/* Caption overlay: hidden by default */
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(30, 30, 30, 0.6);
+  color: #fff;
+  padding: 12px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 1rem;
+}
+
+/* Hover effect: show caption overlay */
+.gallery-item:hover .caption {
+  opacity: 1;
+}
+
+/* Optional: scale image on hover for engagement */
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Responsive grid for tablets and phones */
+@media only screen and (max-width: 800px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 500px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -18,11 +74,12 @@ body {
 }
 
 .header {
-  background: #0074D9; /* medium-blue */
+  background: #0074D9; 
   color: #fff;
   padding: 1rem;
   position: sticky;
   top: 0;
+  z-index: 1000;
 }
 
 .nav {
