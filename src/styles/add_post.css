@@ -2,13 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
 body {
-  background: #f0f8ff;
-  color: #001f3f;
+  font-family: Arial, sans-serif;
   line-height: 1.6;
+  color: #001f3f;
+  background-color: #ffffff;
 }
 
 .container {
@@ -20,7 +20,7 @@ body {
 .header {
   background: #0074D9;
   color: #fff;
-  padding: 1rem 0;
+  padding: 1rem;
   position: sticky;
   top: 0;
 }
@@ -39,7 +39,7 @@ body {
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .nav-links a {
@@ -48,44 +48,67 @@ body {
   transition: color 0.3s;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a[style*="font-weight: bold"] {
   color: #7FDBFF;
 }
 
 .hero {
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 4rem 1rem 2rem 1rem;
   background: #f0f8ff;
 }
 
 .hero-title {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #001f3f;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
 }
 
-.reg-form {
-  max-width: 350px;
+.hero-description {
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  font-size: 1.08rem;
+}
+
+.post-section {
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  border: 1.5px solid #0074D9;
+  max-width: 520px;
   margin: 2rem auto 0 auto;
-  padding: 2rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  padding: 2rem 1.2rem;
+}
+
+.post-form {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  background: #fff;
-  border-radius: 12px;
-  border: 1.5px solid #0074D9;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-  align-items: stretch;
 }
 
-.reg-form label {
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-label {
   font-weight: 500;
   color: #001f3f;
-  margin-bottom: -0.6rem;
-  text-align: left;
 }
 
-.reg-form input {
+.form-input[type="file"] {
+  padding: 0.5rem 0;
+  background: transparent;
+  border: none;
+}
+
+.form-input,
+textarea.form-input {
   padding: 0.7rem 1rem;
   font-size: 1rem;
   border: 1.5px solid #7FDBFF;
@@ -93,29 +116,41 @@ body {
   background: #f0f8ff;
   color: #001f3f;
   transition: border-color 0.2s, background 0.2s;
+  resize: vertical;
 }
 
-.reg-form input:focus {
+.form-input:focus,
+textarea.form-input:focus {
   border-color: #0074D9;
   background: #fff;
   outline: none;
 }
 
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
 .btn {
+  display: inline-block;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
   font-weight: 500;
-  transition: all 0.3s;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn-primary {
   background: #0074D9;
   color: #fff;
 }
 
-.btn:hover {
-  background: #7FDBFF;
-  color: #001f3f;
+.btn-primary:hover {
+  background: #001f3f;
+  color: #7FDBFF;
 }
 
 .footer {
@@ -124,9 +159,17 @@ body {
   text-align: center;
   padding: 2rem 1rem;
   margin-top: 2rem;
-  border-top: 1px solid #7FDBFF;
 }
 
-.footer-bottom {
-  color: #fff;
+.footer a {
+  color: #7FDBFF;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 1rem 0.5rem;
+  }
+  .hero-title { font-size: 1.3rem; }
+  .container { padding: 0 0.3rem; }
 }

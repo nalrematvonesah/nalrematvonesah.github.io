@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Profile | TMNTgram</title>
+  <link rel="stylesheet" href="/src/styles/edit-prodile.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <h1 class="logo">TMNTgram</h1>
+        <div class="nav-links">
+          <a href="homepage.html">Home</a>
+          <a href="profile.html">Profile</a>
+          <a href="news.html">News</a>
+          <a href="friends.html">Friends</a>
+          <a href="settings.html">Settings</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2 class="hero-title">Edit Profile</h2>
+      <p class="hero-description">Update your personal and contact information on TMNTgram.</p>
+    </div>
+  </section>
+
+  <section class="profile-edit-section">
+    <div class="container">
+      <div class="card">
+        <form class="edit-form" action="profile.html" method="get">
+          <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" value="Alikhan Sekenov" required>
+          </div>
+          <div class="form-group">
+            <label for="status">Status:</label>
+            <input type="text" id="status" name="status" value="Student, web developer">
+          </div>
+          <div class="form-group">
+            <label for="bio">About Me:</label>
+            <textarea id="bio" name="bio" rows="3">Second-year student interested in web development and design.</textarea>
+          </div>
+          <div class="form-group">
+            <label for="birthday">Birthday:</label>
+            <input type="date" id="birthday" name="birthday" value="2007-06-25">
+          </div>
+          <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" value="Astana">
+          </div>
+          <div class="form-group">
+            <label for="education">Education:</label>
+            <input type="text" id="education" name="education" value="AITU, Information Technology">
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a href="profile.html" class="btn btn-secondary">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 TMNTgram. Developed by: Tamerlan Khasenov, Alikhan Sekenov, Aldiyar Bazarbayev, Aldiyar Gaisa</p>
+    </div>
+  </footer>
+</body>
+</html>
