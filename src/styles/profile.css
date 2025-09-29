@@ -1,156 +1,223 @@
-
+/* Общие сбросы и стили */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #f0f2f5;
-    color: #1c1e21;
-    line-height: 1.6;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #001f3f;
+  background-color: #fff;
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-
-nav {
-    background-color: #4a76a8;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+/* HEADER → Flexbox */
+.header {
+  background: #0074D9;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.nav-menu {
-    display: flex;
-    list-style: none;
-    justify-content: center;
-    padding: 0;
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-.nav-menu li {
-    margin: 0 15px;
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
 }
 
-.nav-menu a {
-    color: white;
-    text-decoration: none;
-    padding: 5px;
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-.nav-menu a:hover {
-    text-decoration: underline;
+.nav-links a:hover {
+  color: #7FDBFF;
 }
 
-
-.profile-header {
-    background: white;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem 2rem 1rem;
+  background: #f0f8ff;
 }
 
-.profile-avatar {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #4a76a8;
-    margin-bottom: 15px;
+.hero-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
-.profile-header h1 {
-    margin-bottom: 10px;
-    color: #2c3e50;
+.hero-description {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1rem;
 }
 
-.profile-header p {
-    color: #7f8c8d;
-    margin-bottom: 20px;
+/* PROFILE CARD */
+.profile-card {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem 1.5rem;
+  background: #fff;
+  border: 1.5px solid #0074D9;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  align-items: center;
+  border-top: 5px solid #7FDBFF; /* визуальный акцент сверху */
 }
 
-.btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 0 5px;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.friend-btn {
-    background: #4a76a8;
-    color: white;
-}
-
-.friend-btn:hover {
-    background: #3a5a78;
-}
-
-.edit-btn {
-    background: #e7f3ff;
-    color: #4a76a8;
-}
-
-.edit-btn:hover {
-    background: #d4e6ff;
+.profile-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #0074D9;
 }
 
 .profile-info {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 120px 1fr; /* Grid для лейблов и значений */
+  gap: 0.5rem 1rem;
+  align-items: center;
 }
 
-.profile-info h2 {
-    margin-bottom: 15px;
-    color: #2c3e50;
+.profile-info h3 {
+  grid-column: 1 / -1; /* заголовок занимает всю ширину */
+  margin-bottom: 0.5rem;
 }
 
-.info-item {
-    padding: 10px;
-    background: #f8f9fa;
-    border-radius: 4px;
-    margin-bottom: 10px;
+/* Кнопки → Flexbox */
+.profile-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  grid-column: 1 / -1; /* под всей информацией */
 }
 
-.edit-form {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+}
 
-footer {
-    background: #4a76a8;
-    color: white;
+.btn-primary {
+  background: #0074D9;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #001f3f;
+  color: #7FDBFF;
+}
+
+.btn-secondary {
+  background: #7FDBFF;
+  color: #001f3f;
+}
+
+.btn-secondary:hover {
+  background: #0074D9;
+  color: #fff;
+}
+
+/* Статистика профиля */
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  text-align: center;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f0f8ff;
+  border-radius: 8px;
+}
+
+.profile-stats div span {
+  display: block;
+  margin-top: 0.3rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Соц-кнопки */
+.social-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Мини-галерея */
+.profile-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.profile-gallery img {
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+/* FOOTER */
+.footer {
+  background: #001f3f;
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+}
+
+.footer a {
+  color: #7FDBFF;
+  text-decoration: none;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+  .profile-card {
+    grid-template-columns: 1fr;
     text-align: center;
-    padding: 15px;
-    border-radius: 5px;
-    margin-top: 30px;
+  }
+  .profile-info {
+    grid-template-columns: 1fr; /* лейблы над значениями */
+    text-align: center;
+  }
+  .profile-actions {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .profile-stats {
+    grid-template-columns: 1fr;
+  }
+  .profile-gallery {
+    grid-template-columns: 1fr;
+  }
+  .social-buttons {
+    justify-content: center;
+  }
 }
-        }
