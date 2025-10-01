@@ -17,29 +17,27 @@ body {
   padding: 0 1rem;
 }
 
+/* HEADER → Flexbox */
 .header {
   background: #0074D9;
   color: #fff;
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-}
-
-.nav {
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #fff;
 }
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .nav-links a {
@@ -52,41 +50,76 @@ body {
   color: #7FDBFF;
 }
 
+/* HERO */
 .hero {
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 3rem 1rem 2rem 1rem;
   background: #f0f8ff;
 }
 
 .hero-title {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #001f3f;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .hero-description {
   max-width: 600px;
-  margin: 0 auto 2rem;
-  font-size: 1.1rem;
-  color: #001f3f;
+  margin: 0 auto;
+  font-size: 1rem;
 }
 
-.hero-buttons {
+/* PROFILE CARD */
+.profile-card {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem 1.5rem;
+  background: #fff;
+  border: 1.5px solid #0074D9;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  align-items: center;
+  border-top: 5px solid #7FDBFF; /* визуальный акцент сверху */
+}
+
+.profile-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #0074D9;
+}
+
+.profile-info {
+  display: grid;
+  grid-template-columns: 120px 1fr; /* Grid для лейблов и значений */
+  gap: 0.5rem 1rem;
+  align-items: center;
+}
+
+.profile-info h3 {
+  grid-column: 1 / -1; /* заголовок занимает всю ширину */
+  margin-bottom: 0.5rem;
+}
+
+/* Кнопки → Flexbox */
+.profile-actions {
   display: flex;
   gap: 1rem;
-  justify-content: center;
   margin-top: 1rem;
+  grid-column: 1 / -1; /* под всей информацией */
 }
 
 .btn {
-  display: inline-block;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 5px;
-  font-size: 1rem;
   cursor: pointer;
   font-weight: 500;
-  transition: all 0.3s;
+  text-decoration: none;
+  text-align: center;
 }
 
 .btn-primary {
@@ -94,158 +127,96 @@ body {
   color: #fff;
 }
 
+.btn-primary:hover {
+  background: #001f3f;
+  color: #7FDBFF;
+}
+
 .btn-secondary {
   background: #7FDBFF;
   color: #001f3f;
 }
 
-.btn-card {
-  width: 100%;
+.btn-secondary:hover {
   background: #0074D9;
   color: #fff;
+}
+
+/* Статистика профиля */
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  text-align: center;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f0f8ff;
+  border-radius: 8px;
+}
+
+.profile-stats div span {
+  display: block;
+  margin-top: 0.3rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Соц-кнопки */
+.social-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Мини-галерея */
+.profile-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
   margin-top: 1rem;
 }
 
-.btn-card:hover {
-  background: #7FDBFF;
-  color: #001f3f;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 1.8rem;
-  margin: 2rem 0;
-  color: #001f3f;
-}
-
-.grid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: 1fr;
-  margin-bottom: 2rem;
-}
-
-.card {
-  border: 1px solid #0074D9;
-  border-radius: 8px;
-  background: #fff;
-  overflow: hidden;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.card-image {
+.profile-gallery img {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #f0f8ff;
-  padding: 1rem 0;
+  border-radius: 5px;
+  object-fit: cover;
 }
 
-.card-content {
-  padding: 1.5rem;
-  width: 90%;
-}
-
-.card-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #0074D9;
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-
-.card-subtitle {
-  color: #001f3f;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.card-text {
-  color: #001f3f;
-  margin-bottom: 0.5rem;
-}
-
+/* FOOTER */
 .footer {
   background: #001f3f;
   color: #fff;
+  text-align: center;
   padding: 2rem 1rem;
   margin-top: 2rem;
 }
 
-.footer-grid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.footer-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: #7FDBFF;
-}
-
-.footer-text, .footer-contact p {
-  color: #fff;
-  font-size: 1rem;
-}
-
-.footer-subtitle {
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  color: #7FDBFF;
-}
-
-.footer-links {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 0.5rem;
-}
-
-.footer-links li {
-  margin-bottom: 0.5rem;
-}
-
-.footer-links a {
+.footer a {
   color: #7FDBFF;
   text-decoration: none;
-  transition: color 0.3s;
 }
 
-.footer-links a:hover {
-  color: #fff;
-}
-
-.footer-bottom {
-  border-top: 1px solid #7FDBFF;
-  margin-top: 2rem;
-  padding-top: 2rem;
-  text-align: center;
-  color: #fff;
-}
-
-@media (max-width: 900px) {
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+/* Адаптивность */
 @media (max-width: 600px) {
-  .footer-grid {
+  .profile-card {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    text-align: center;
   }
-  .card-image img {
-    width: 80px;
-    height: 80px;
+  .profile-info {
+    grid-template-columns: 1fr; /* лейблы над значениями */
+    text-align: center;
   }
-  .hero-title {
-    font-size: 1.7rem;
+  .profile-actions {
+    flex-direction: column;
+    justify-content: center;
   }
-  .section-title {
-    font-size: 1.2rem;
+  .profile-stats {
+    grid-template-columns: 1fr;
+  }
+  .profile-gallery {
+    grid-template-columns: 1fr;
+  }
+  .social-buttons {
+    justify-content: center;
   }
 }
