@@ -3,25 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.edit-form {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 1rem 1.5rem;
-  align-items: center;
-}
-
-.form-actions {
-  grid-column: 1 / -1; 
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
 
 body {
   font-family: Arial, sans-serif;
