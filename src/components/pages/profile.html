@@ -21,61 +21,72 @@
       </nav>
     </div>
   </header>
-  
-  <section id="profile-hero" class="hero">
+
+  <!-- HERO -->
+  <section class="hero">
     <div class="container">
-      <h2 class="hero-title">Welcome, Alikhan Sekenov!</h2>
-      <p class="hero-description">2nd year student at Astana IT University.</p>
-      <div class="hero-buttons">
-        <button class="btn btn-primary"><a href="edit-profile.html">Edit profile</a></button>
-        <button class="btn btn-secondary">Subscribe</button>
-      </div>
+      <h2 class="hero-title">My Profile</h2>
+      <p class="hero-description">View and manage your personal information on TMNTgram.</p>
     </div>
   </section>
 
-  <section class="destinations">
+  <!-- PROFILE CARD -->
+  <section class="profile-section">
     <div class="container">
-      <h3 class="section-title">Personal Information</h3>
-      <div class="grid">
-        <div class="card">
-          <div class="card-image medium-blue" style="display:flex;justify-content:center;align-items:center;">
-            <img src="/src/assets/img/ALDIYAR.jpg" alt="Аватар" width="120" height="120" style="border-radius:50%;border:4px solid #0074D9;">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Alikhan Sekenov</h4>
-            <p class="card-subtitle">City: Astana</p>
-            <p class="card-text">Date of birth: 25.07.2007</p>
-            <p class="card-text">University: AITU</p>
-            <p class="card-text">Faculty: Software Engineering</p>
-            <button class="btn btn-card">Send a message</button>
+      <div class="profile-card">
+        <img src="https://media.tenor.com/Ch_6P9HWkf8AAAAM/guy-crying-meme-guy-crying.gif" alt="Profile Picture">
+        <div class="profile-info">
+          <h3>Alikhan Sekenov</h3>
+          <span><strong>Status:</strong></span><span>Student, Web Developer</span>
+          <span><strong>About Me:</strong></span><span>Second-year student interested in web development and design.</span>
+          <span><strong>Birthday:</strong></span><span>25 June 2007</span>
+          <span><strong>City:</strong></span><span>Astana</span>
+          <span><strong>Education:</strong></span><span>AITU, Information Technology</span>
+
+          <!-- Кнопки -->
+          <div class="profile-actions">
+            <a href="edit-profile.html" class="btn btn-primary">Edit Profile</a>
+            <a href="homepage.html" class="btn btn-secondary">Back to Home</a>
           </div>
         </div>
       </div>
+
+      <!-- Статистика профиля -->
+      <div class="profile-stats">
+        <div><strong>Posts</strong><span>3</span></div>
+        <div><strong>Friends</strong><span>128</span></div>
+        <div><strong>Followers</strong><span>452</span></div>
+      </div>
+
+      <!-- Соц-кнопки -->
+      <div class="social-buttons">
+        <a href="#" class="btn btn-secondary">Twitter</a>
+        <a href="#" class="btn btn-secondary">LinkedIn</a>
+        <a href="#" class="btn btn-secondary">GitHub</a>
+      </div>
+
+     <div class="profile-posts">
+  <div class="post">
+    <img src=https://www.meme-arsenal.com/memes/33611e355eeecea02ccfa2b111924d90.jpg alt="Post 1">
+    <p class="post-caption">Happy Birthday to Me!</p>
+  </div>
+  <div class="post">
+    <img src="https://i.pinimg.com/236x/80/b7/81/80b781691d46d7f7a352a349ff48515f.jpg" alt="Post 2">
+    <p class="post-caption">Weekend vibes 🌿</p>
+  </div>
+  <div class="post">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsPpf-nNlNQi4PjRX2XTEGXvL6GFY3j0TrxQ&s" alt="Post 3">
+    <p class="post-caption">I realized who I am...</p>
+  </div>
+</div>
     </div>
   </section>
   
+
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-section">
-          <h4 class="footer-title">TMNTgram</h4>
-          <p class="footer-text">Social media platform for networking.</p>
-        </div>
-        <div class="footer-section">
-          <h5 class="footer-subtitle">Navigation</h5>
-          <ul class="footer-links">
-            <li><a href="homepage.html">Home</a></li>
-            <li><a href="friends.html">Friends</a></li>
-            <li><a href="profile.html">Profile</a></li>
-            <li><a href="settings.html">Settings</a></li>
-          </ul>
-        </div>
-        
-      </div>
-      <div class="footer-bottom">
-        <p>© 2025 TMNTgram.</p>
-        <p>Khassenov Tamerlan, Alikhan Sekenov, Aldiyar Bazarbayev, Aldiyar Gaisa.</p>
-      </div>
+      <p>&copy; 2025 TMNTgram. Developed by: Tamerlan Khasenov, Alikhan Sekenov, Aldiyar Bazarbayev, Aldiyar Gaisa</p>
     </div>
   </footer>
 </body>
