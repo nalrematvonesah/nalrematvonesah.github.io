@@ -110,10 +110,10 @@ body {
 
 
 .card-image img {
-  width: 64px;         /* фиксированный размер */
+  width: 64px;        
   height: 64px;
-  border-radius: 50%;  /* делает круг */
-  object-fit: cover;   /* чтобы лицо не растягивалось */
+  border-radius: 50%;  
+  object-fit: cover;   
   border: 3px solid #0074D9;
 }
 
@@ -123,4 +123,57 @@ body {
   align-items: center;
   padding: 1rem;
   background: #f0f8ff;
+}
+
+
+
+
+
+/* --- Compact card layout --- */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* было 280px */
+  gap: 16px; /* чуть меньше расстояние */
+  margin: 15px 0;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 240px; /* ограничение ширины */
+  margin: 0 auto;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.card-image img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid #0074D9;
+}
+
+.card-content {
+  padding: 12px;
+}
+
+.card-title {
+  font-size: 16px;
+}
+
+.card-subtitle {
+  font-size: 11px;
+}
+
+.card-text {
+  font-size: 13px;
+  margin: 8px 0;
 }
