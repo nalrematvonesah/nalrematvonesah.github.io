@@ -4,68 +4,99 @@
     <meta charset="UTF-8">
     <meta name="author" content="TMNTgram Team">
     <title>TMNTgram</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="/src/styles/homepage.css">
 </head>
 <body>
-    <header id="main-header" class="header">
+    <nav class="navbar navbar-dark navbar-expand-sm sticky-top navbar-custom">
         <div class="container">
-            <nav class="nav">
-                <h1 class="logo">TMNTgram</h1>
-                <div class="nav-links">
-                    <a href="homepage.html">Home</a>
-                    <a href="friends.html">Friends</a>
-                    <a href="profile.html">Profile</a>
-                    <a href="profile.html">Settings</a>
-                    <a href="authorization.html">Login</a>
+            <h1 class="navbar-brand mb-0">TMNTgram</h1>
+            <div class="navbar-nav flex-row flex-wrap">
+                <a class="nav-link active me-3" aria-current="page" href="homepage.html">Home</a>
+                <a class="nav-link me-3" href="friends.html">Friends</a>
+                <a class="nav-link me-3" href="profile.html">Profile</a>
+                <a class="nav-link me-3" href="profile.html">Settings</a>
+                <a class="nav-link" href="authorization.html">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h2 class="mb-4 text-center">Featured Photos</h2>
+        
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="/src/assets/img/ALDIYAR.jpg" class="card-img-top" alt="Aldiyar">
+                    <div class="card-body">
+                        <h5 class="card-title">Aldiyar</h5>
+                        <p class="card-text">A great photo of Aldiyar, sharing a moment from his latest adventure.</p>
+                    </div>
                 </div>
-            </nav>
-        </div>
-    </header>
-    <div class="gallery">
-        <div class="gallery-item">
-            <img src="/src/assets/img/ALDIYAR.jpg" alt="Description 1">
-            <div class="caption">Aldiyar</div>
-        </div>
-        <div class="gallery-item">
-            <img src="/src/assets/img/ASKHAT.jpg" alt="Description 1">
-            <div class="caption">Askhat</div>
-        </div>
-        <div class="gallery-item">
-            <img src="/src/assets/img/assylkhan.jpg" alt="Description 1">
-            <div class="caption">Assylkhan</div>
-        </div>
-        <div class="gallery-item">
-            <img src="/src/assets/img/sandwich.jpeg" alt="Description 1">
-            <div class="caption">Sandwich</div>
-        </div>
-        <div class="gallery-item">
-            <img src="/src/assets/img/shrek1.jpeg" alt="Description 1">
-            <div class="caption">Shrek</div>
-        </div>
-        <div class="gallery-item">
-            <img src="/src/assets/img/shrek2.jpeg" alt="Description 1">
-            <div class="caption">Shrek</div>
-        </div>
-        <div class="gallery-item">
-            <img src="/src/assets/img/shrek3.jpeg" alt="Description 1">
-            <div class="caption">Shrek</div>
-        </div>
-        <div class="gallery-item">
-            <img src="/src/assets/img/shrek4.jpeg" alt="Description 1">
-            <div class="caption">Shrek</div>
-        </div>
-        <div class="gallery-item">
-            <img src="/src/assets/img/shrek5.jpeg" alt="Description 1">
-            <div class="caption">Shrek</div>
+            </div>
+            
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="/src/assets/img/ASKHAT.jpg" class="card-img-top" alt="Askhat">
+                    <div class="card-body">
+                        <h5 class="card-title">Askhat</h5>
+                        <p class="card-text">Capturing Askhat in a candid moment. Quality content for the TMNTgram feed.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="/src/assets/img/assylkhan.jpg" class="card-img-top" alt="Assylkhan">
+                    <div class="card-body">
+                        <h5 class="card-title">Assylkhan</h5>
+                        <p class="card-text">A beautiful shot of Assylkhan, inspiring the community with his posts.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="/src/assets/img/sandwich.jpeg" class="card-img-top" alt="Sandwich">
+                    <div class="card-body">
+                        <h5 class="card-title">Sandwich Bliss</h5>
+                        <p class="card-text">A delicious-looking sandwich that's making everyone hungry! #foodgram</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="/src/assets/img/shrek1.jpeg" class="card-img-top" alt="Shrek">
+                    <div class="card-body">
+                        <h5 class="card-title">Shrek's Swamp</h5>
+                        <p class="card-text">An iconic picture of Shrek. What a lovely green ogre!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="/src/assets/img/shrek5.jpeg" class="card-img-top" alt="Shrek">
+                    <div class="card-body">
+                        <h5 class="card-title">Shrek's Wisdom</h5>
+                        <p class="card-text">"Better out than in, I always say." A classic moment captured forever.</p>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
+    
     <footer>
-        <div>
-            <div class="footer-bottom">
-                <p>© 2025 BlueWave Travel. All rights reserved.</p>
-                <p>Developed by: Tamerlan Khassenov, Alikhan Sekenov, Aldiyar Bazarbayev, Aldiyar Gaisa</p>
+        <div class="footer-custom py-3 mt-5">
+            <div class="container text-center">
+                <p class="mb-1 text-white-50">© 2025 TMNTgram. All rights reserved.</p>
+                <p class="mb-0 text-white-50">Developed by: Tamerlan Khassenov, Alikhan Sekenov, Aldiyar Bazarbayev, Aldiyar Gaisa</p>
             </div>
         </div>
     </footer>
+    
 </body>
 </html>
