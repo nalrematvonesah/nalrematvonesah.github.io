@@ -3,111 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <title>News/posts - TMNTgram</title>
-  <link rel="stylesheet" href="/src/styles/news.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/news.css">
 </head>
 <body>
-  <!-- HEADER (Flexbox) -->
-  <header class="header">
-    <div class="container">
-      <nav class="nav">
-        <h1 class="logo">TMNTgram</h1>
-        <div class="nav-links">
-          <a href="homepage.html">Home</a>
-          <a href="profile.html">Profile</a>
-          <a href="news.html" class="active">News</a>
-          <a href="friends.html">Friends</a>
-          <a href="add_post.html">Add Post</a>
-          <a href="authorization.html">Login</a>
-        </div>
-      </nav>
+
+  <!--Bootstrap navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">TMNTgram</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="homepage.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+          <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+          <li class="nav-item"><a class="nav-link" href="friends.html">Friends</a></li>
+          <li class="nav-item"><a class="nav-link" href="add_post.html">Add Post</a></li>
+          <li class="nav-item"><a class="nav-link" href="authorization.html">Login</a></li>
+        </ul>
+      </div>
     </div>
-  </header>
+  </nav>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <h2 class="hero-title">News and Posts</h2>
-      <p class="hero-description">TMNTgram Team, last news and updates!</p>
-    </div>
+  <section class="text-center p-5 bg-light">
+    <h2 class="fw-bold">News and Posts</h2>
+    <p class="text-muted">TMNTgram Team — last news and updates!</p>
   </section>
 
-  <!-- MAIN SECTION (Grid) -->
-  <main class="main-content container">
-    <section class="posts-section">
-      <h3 class="section-title">Posts</h3>
-      <div class="posts-grid">
+  <!--Bootstrap Carousel-->
+  <div id="teamCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="2"></button>
+      <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="3"></button>
+      <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="4"></button>
+      <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="5"></button>
+      <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="6"></button>
+      <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="7"></button>
+      <button type="button" data-bs-target="#teamCarousel" data-bs-slide-to="8"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../../assets/img/TAMERLAN.jpg" class="d-block w-100" alt="Slide 1">
+      </div>
+      <div class="carousel-item">
+        <img src="../../assets/img/ALIKHAN.jpg" class="d-block w-100" alt="Slide 2">
+      </div>
+      <div class="carousel-item">
+        <img src="../../assets/img/ALDIYAR.jpg" class="d-block w-100" alt="Slide 3">
+      </div>
+      <div class="carousel-item">
+        <img src="../../assets/img/AALDIK.jpg" class="d-block w-100" alt="Slide 4">
+      </div>
+      <div class="carousel-item">
+        <img src="../../assets/img/TAMERLAN.jpg" class="d-block w-100" alt="Slide 5">
+      </div>
+      <div class="carousel-item">
+        <img src="../../assets/img/ALIKHAN.jpg" class="d-block w-100" alt="Slide 6">
+      </div>
+      <div class="carousel-item">
+        <img src="../../assets/img/ALDIYAR.jpg" class="d-block w-100" alt="Slide 7">
+      </div>
+      <div class="carousel-item">
+        <img src="../../assets/img/AALDIK.jpg" class="d-block w-100" alt="Slide 8">
+      </div>
+      <div class="carousel-item">
+        <img src="../../assets/img/ALDIYAR.jpg" class="d-block w-100" alt="Slide 9">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#teamCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#teamCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- POSTS GRID -->
+  <main class="container mb-5">
+    <section class="posts-section text-center">
+      <h3 class="mb-4 fw-bold">Posts</h3>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+
         <!-- CARD 1 -->
-        <div class="card">
-          <div class="card-image">
-            <img src="src/assets/img/TAMERLAN.jpg" alt="Аватарка">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Tamerlan Khasenov</h4>
-            <p class="card-subtitle">01.10.2025</p>
-            <p class="card-text">Первая новость проекта. Всё работает 🚀</p>
-            <div class="hero-buttons">
-              <button class="btn btn-primary">⭐ 3</button>
-              <button class="btn btn-secondary">Comments</button>
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="../../assets/img/TAMERLAN.jpg" class="card-img-top" alt="Tamerlan">
+            <div class="card-body">
+              <h5 class="card-title">Khassenov Tamerlan</h5>
+              <p class="card-text">Hello friends! Today is a great day for teamwork on a project.</p>
+              <div class="btn-group">
+                <button class="btn btn-outline-danger btn-sm">❤️ 5</button>
+                <button class="btn btn-outline-secondary btn-sm">Comments</button>
+              </div>
             </div>
           </div>
         </div>
-      
+
         <!-- CARD 2 -->
-        <div class="card">
-          <div class="card-image">
-            <img src="src/assets/img/ALIKHAN.jpg" alt="Аватарка">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Alikhan Sekenov</h4>
-            <p class="card-subtitle">02.10.2025</p>
-            <p class="card-text">Сегодня добавил форму для постов ✨</p>
-            <div class="hero-buttons">
-              <button class="btn btn-primary">⭐ 5</button>
-              <button class="btn btn-secondary">Comments</button>
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="../../assets/img/ALIKHAN.jpg" class="card-img-top" alt="Alikhan">
+            <div class="card-body">
+              <h5 class="card-title">Alikhan Sekenov</h5>
+              <p class="card-text">Added new styles to the profile. Check it out!</p>
+              <div class="btn-group">
+                <button class="btn btn-outline-primary btn-sm">👍 3</button>
+                <button class="btn btn-outline-secondary btn-sm">Comments</button>
+              </div>
             </div>
           </div>
         </div>
-      
+
         <!-- CARD 3 -->
-        <div class="card">
-          <div class="card-image">
-            <img src="src/assets/img/ALDIYAR.jpg" alt="Аватарка">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Aldiyar Bazarbayev</h4>
-            <p class="card-subtitle">03.10.2025</p>
-            <p class="card-text">Починил вывод карточек новостей 📰</p>
-            <div class="hero-buttons">
-              <button class="btn btn-primary">⭐ 7</button>
-              <button class="btn btn-secondary">Comments</button>
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="../../assets/img/ALDIYAR.jpg" class="card-img-top" alt="Aldiyar">
+            <div class="card-body">
+              <h5 class="card-title">Aldiyar Bazarbayev</h5>
+              <p class="card-text">I'm working on posts. The form is ready — minimalistic!</p>
+              <div class="btn-group">
+                <button class="btn btn-outline-warning btn-sm">⭐ 7</button>
+                <button class="btn btn-outline-secondary btn-sm">Comments</button>
+              </div>
             </div>
           </div>
         </div>
-      
+
         <!-- CARD 4 -->
-        <div class="card">
-          <div class="card-image">
-            <img src="src/assets/img/AALDIK.jpg" alt="Аватарка">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Aldiyar Gaisa</h4>
-            <p class="card-subtitle">13.06.2025</p>
-            <p class="card-text">I'm working on news. The addition form is ready — minimalistic design!</p>
-            <div class="hero-buttons">
-              <button class="btn btn-primary">⭐ 2</button>
-              <button class="btn btn-secondary">Comments</button>
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <img src="../../assets/img/AALDIK.jpg" class="card-img-top" alt="Aldiyar Gaisa">
+            <div class="card-body">
+              <h5 class="card-title">Aldiyar Gaisa</h5>
+              <p class="card-text">Working on news section. Everything is smooth!</p>
+              <div class="btn-group">
+                <button class="btn btn-outline-success btn-sm">⭐ 2</button>
+                <button class="btn btn-outline-secondary btn-sm">Comments</button>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   </main>
 
-  <!-- FOOTER (Flexbox center) -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 TMNTgram. Team: Khassenov Tamerlan, Alikhan Sekenov, Aldiyar Bazarbayev, Aldiyar Gaisa</p>
-    </div>
+  <!-- FOOTER -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">&copy; 2025 TMNTgram. Team: Khassenov Tamerlan, Alikhan Sekenov, Aldiyar Bazarbayev, Aldiyar Gaisa</p>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
