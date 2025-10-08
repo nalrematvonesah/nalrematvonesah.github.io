@@ -7,8 +7,8 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  color: #001f3f; /* dark-blue */
-  background-color: #ffffff; /* white */
+  color: #001f3f;
+  background-color: #ffffff;
 }
 
 .container {
@@ -17,7 +17,6 @@ body {
   padding: 0 1rem;
 }
 
-/* HEADER → Flexbox */
 .header {
   background: #0074D9;
   color: #fff;
@@ -28,6 +27,48 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
+}
+
+.header .container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 2rem;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-block {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+}
+.nav-links a:hover {
+  color: #7FDBFF;
 }
 
 .logo {
@@ -44,13 +85,13 @@ body {
   color: #fff;
   text-decoration: none;
   transition: color 0.3s;
+  
 }
 
 .nav-links a:hover {
   color: #7FDBFF;
 }
 
-/* HERO */
 .hero {
   text-align: center;
   padding: 3rem 1rem 2rem 1rem;
@@ -68,7 +109,6 @@ body {
   font-size: 1rem;
 }
 
-/* PROFILE CARD */
 .profile-card {
   display: grid;
   grid-template-columns: 150px 1fr;
@@ -81,7 +121,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 1px 6px rgba(0,0,0,0.08);
   align-items: center;
-  border-top: 5px solid #7FDBFF; /* визуальный акцент сверху */
+  border-top: 5px solid #7FDBFF;
 }
 
 .profile-card img {
@@ -94,22 +134,21 @@ body {
 
 .profile-info {
   display: grid;
-  grid-template-columns: 120px 1fr; /* Grid для лейблов и значений */
+  grid-template-columns: 120px 1fr;
   gap: 0.5rem 1rem;
   align-items: center;
 }
 
 .profile-info h3 {
-  grid-column: 1 / -1; /* заголовок занимает всю ширину */
+  grid-column: 1 / -1;
   margin-bottom: 0.5rem;
 }
 
-/* Кнопки → Flexbox */
 .profile-actions {
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
-  grid-column: 1 / -1; /* под всей информацией */
+  grid-column: 1 / -1;
 }
 
 .btn {
@@ -142,7 +181,6 @@ body {
   color: #fff;
 }
 
-/* Статистика профиля */
 .profile-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -161,14 +199,12 @@ body {
   font-size: 1.2rem;
 }
 
-/* Соц-кнопки */
 .social-buttons {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1rem;
 }
 
-/* Мини-галерея */
 .profile-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -182,7 +218,6 @@ body {
   object-fit: cover;
 }
 
-/* FOOTER */
 .footer {
   background: #001f3f;
   color: #fff;
@@ -196,14 +231,13 @@ body {
   text-decoration: none;
 }
 
-/* Адаптивность */
 @media (max-width: 600px) {
   .profile-card {
     grid-template-columns: 1fr;
     text-align: center;
   }
   .profile-info {
-    grid-template-columns: 1fr; /* лейблы над значениями */
+    grid-template-columns: 1fr;
     text-align: center;
   }
   .profile-actions {
@@ -220,3 +254,143 @@ body {
     justify-content: center;
   }
 }
+/* ====== Вариант: всё по центру, но каждая строка горизонтальная ====== */
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1.5px solid #0074D9;
+  border-radius: 10px;
+  padding: 25px 30px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  max-width: 650px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+/* === Исправление круглого аватара (финальный лёгкий вариант) === */
+.profile-card img {
+  width: 150px !important;      /* фиксируем ширину */
+  height: 150px !important;     /* фиксируем высоту */
+  border-radius: 50% !important;/* идеально круглый */
+  object-fit: cover !important; /* не растягивается, просто обрезается по кругу */
+  display: block;
+  margin: 0 auto 15px auto;     /* по центру */
+  border: 3px solid #7FDBFF;
+}
+
+
+
+/* блок информации */
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+/* === Лёгкий вариант: все посты одного размера === */
+.profile-posts .post img {
+  width: 100%;
+  height: 300px;       /* одинаковая высота для всех */
+  object-fit: cover;   /* обрезает, чтобы не искажалось */
+  border-radius: 8px;
+  display: block;
+}
+
+/* имя */
+.profile-info h3 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #001f3f;
+  margin-bottom: 8px;
+}
+
+/* каждая строка информации — горизонтальная, центрированная */
+.profile-info div {
+  display: flex;
+  justify-content: center;   /* всё по центру */
+  align-items: center;
+  gap: 6px;                  /* промежуток между “Status:” и текстом */
+  font-size: 1rem;
+  color: #001f3f;
+  flex-wrap: wrap;           /* чтобы текст не выходил за границы */
+}
+
+/* метки (Status:, About Me:) выделяем жирным */
+.profile-info div strong {
+  font-weight: 600;
+  color: #003366;
+}
+
+/* кнопки */
+.profile-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.profile-actions .btn {
+  padding: 10px 18px;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background-color: #0074D9;
+}
+
+.btn-primary:hover {
+  background-color: #005fa3;
+}
+
+.btn-secondary {
+  background-color: #7FDBFF;
+  color: #001f3f;
+}
+
+.btn-secondary:hover {
+  background-color: #0074D9;
+  color: #fff;
+}
+
+/* блок статистики (Posts / Friends / Followers) */
+.profile-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background: #f0f8ff;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 25px auto;
+  max-width: 650px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.profile-stats div {
+  text-align: center;
+}
+
+.profile-stats strong {
+  display: block;
+  color: #001f3f;
+  font-size: 1rem;
+}
+
+.profile-stats span {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #0074D9;
+}
+
+/* адаптация для мобильных */
+@media (max-width: 600px) {
+  .profile-card {
+
