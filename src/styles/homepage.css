@@ -10,11 +10,11 @@ body {
 }
 
 .navbar-custom {
-    background-color: #0074D9 !important;
+    background-color: #0074D9;
 }
 
 .navbar-brand, .nav-link {
-    color: #fff !important;
+    color: #fff ;
 }
 
 .footer-custom {
