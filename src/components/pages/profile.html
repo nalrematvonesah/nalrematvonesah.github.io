@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TMNTgram Profile</title>
 
-  <!-- === Добавлено: Bootstrap CSS (нужен для grid и spacing utilities) === -->
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Ваш кастомный стиль (оставляем, но позже уберём/закомментируем конфликтные правила) -->
+  <!-- Подключение CSS для профиля -->
   <link rel="stylesheet" href="../../styles/profile.css">
 </head>
+
 <body>
   <header id="main-header" class="header">
     <div class="container">
       <nav class="nav d-flex justify-content-between align-items-center">
         <div class="logo-block d-flex align-items-center gap-2">
-          <!-- Лучше использовать относительные пути к локальным картинкам, абсолютный windows-путь не будет работать в браузере у других -->
-          <img src="C:\Users\Admin\Downloads\ChatGPT Image 1 окт. 2025 г., 13_43_15.png" alt="TMNTgram Logo" class="logo-img" style="width:48px;height:48px;object-fit:cover;">
+          <img src="c:\Users\Admin\Downloads\ChatGPT Image 1 окт. 2025 г., 13_43_15  .png"
+               alt="TMNTgram Logo"
+               class="logo-img"
+               style="width:48px;height:48px;object-fit:cover;">
           <h1 class="logo-text m-0">TMNTgram</h1>
         </div>
-
-        <!-- Используем bootstrap-классы для выравнивания ссылок -->
         <div class="nav-links d-flex gap-3">
           <a href="profile.html" style="font-weight:bold;">Profile</a>
           <a href="friends.html">Friends</a>
@@ -40,16 +41,11 @@
     </div>
   </section>
 
-  <!-- === PROFILE SECTION: использован Bootstrap Grid (Task 3) === -->
   <section class="profile-section">
     <div class="container py-4">
-      <!-- row для основной части: слева карточка профиля (шире), справа статистика -->
       <div class="row g-4">
-        <!-- Левый столбец: профиль (на lg занимает 8/12, на md — 12/12) -->
         <div class="col-lg-8 col-md-12">
-          <!-- Используем card + утилиты spacing вместо ручных margin/padding -->
           <div class="profile-card card p-3 h-100">
-            <!-- Внутри — flex: изображение + информация -->
             <div class="d-flex flex-column flex-md-row gap-3">
               <img src="https://media.tenor.com/Ch_6P9HWkf8AAAAM/guy-crying-meme-guy-crying.gif"
                    alt="Profile Picture"
@@ -57,17 +53,23 @@
                    style="max-width:180px; height:auto;">
               <div class="profile-info d-flex flex-column">
                 <h2 class="mb-2">Alikhan Sekenov</h2>
-
-                <!-- Каждая пара label/value — сделаем более читаемой через блоки и утилиты -->
                 <div class="mb-2"><strong>Status:</strong> <span>Student, Web Developer</span></div>
                 <div class="mb-2"><strong>About Me:</strong> <span>Second-year student interested in web development and design.</span></div>
                 <div class="mb-2"><strong>Birthday:</strong> <span>25 June 2007</span></div>
                 <div class="mb-2"><strong>City:</strong> <span>Astana</span></div>
                 <div class="mb-3"><strong>Education:</strong> <span>AITU, Information Technology</span></div>
 
-                <!-- Кнопки: используем bootstrap-утилиты (p- / mt-), кнопки уже имеют классы btn в вашем HTML -->
+                <!-- Кнопки действий -->
                 <div class="profile-actions d-flex gap-2 mt-auto">
                   <a href="edit-profile.html" class="btn btn-primary">Edit Profile</a>
+
+                  <!-- Новая кнопка для открытия попапа -->
+                  <button type="button"
+                          class="btn btn-outline-secondary js-open-popup"
+                          data-popup-target="#contactPopup">
+                    Contact
+                  </button>
+
                   <a href="homepage.html" class="btn btn-secondary">Back to Home</a>
                 </div>
               </div>
@@ -75,18 +77,17 @@
           </div>
         </div>
 
-        <!-- Правый столбец: статистика (на lg 4/12) -->
         <div class="col-lg-4 col-md-12">
           <div class="profile-stats card p-3 h-100">
             <div class="d-flex flex-column gap-3">
               <div class="d-flex justify-content-between align-items-center">
-                <strong>Posts</strong><span> 3</span>
+                <strong>Posts</strong><span>3</span>
               </div>
               <div class="d-flex justify-content-between align-items-center">
-                <strong>Friends</strong><span> 128</span>
+                <strong>Friends</strong><span>128</span>
               </div>
               <div class="d-flex justify-content-between align-items-center">
-                <strong>Followers</strong><span> 452</span>
+                <strong>Followers</strong><span>452</span>
               </div>
 
               <div class="social-buttons d-flex gap-2 mt-3">
@@ -99,9 +100,8 @@
         </div>
       </div>
 
-      <!-- === POSTS GRID: 3 колонки на lg, 2 на md, 1 на sm (Task 3) === -->
+      <!-- Посты -->
       <div class="row g-3 mt-4 profile-posts">
-        <!-- Каждый пост в своей колонке -->
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="post card p-2 h-100">
             <img src="https://www.meme-arsenal.com/memes/33611e355eeecea02ccfa2b111924d90.jpg"
@@ -126,17 +126,44 @@
           </div>
         </div>
       </div>
-
-    </div> <!-- /.container -->
+    </div>
   </section>
-  
+
   <footer class="footer">
     <div class="container py-3">
       <p class="mb-0">&copy; 2025 TMNTgram. Developed by: Tamerlan Khasenov, Alikhan Sekenov, Aldiyar Bazarbayev, Aldiyar Gaisa</p>
     </div>
   </footer>
 
-  <!-- === Добавлено: Bootstrap JS bundle === -->
+  <!-- POPUP (Task 3) -->
+  <div id="contactPopup" class="popup" aria-hidden="true">
+    <div class="popup__dialog" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+      <button class="popup__close" data-popup-close aria-label="Close">&times;</button>
+      <h2 id="popupTitle" class="popup__title">Contact</h2>
+
+      <form id="popupForm" class="popup__form" novalidate>
+        <label class="fld">
+          <span class="fld__label">Email</span>
+          <input class="fld__control" id="popupEmail" name="email" type="email" placeholder="you@example.com" required>
+        </label>
+
+        <label class="fld">
+          <span class="fld__label">Message</span>
+          <textarea class="fld__control" id="popupMessage" name="message" rows="4" placeholder="Your message..." required></textarea>
+        </label>
+
+        <div class="popup__actions">
+          <button type="button" class="btn btn-secondary" data-popup-close>Cancel</button>
+          <button type="submit" class="btn btn-primary">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Подключение profile.js -->
+  <script src="../../js/profile.js"></script>
 </body>
 </html>

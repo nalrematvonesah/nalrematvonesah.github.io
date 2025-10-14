@@ -284,20 +284,180 @@ body {
 
 
 
-/* блок информации */
+
 .profile-info {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
 }
-/* === Лёгкий вариант: все посты одного размера === */
+
 .profile-posts .post img {
   width: 100%;
-  height: 300px;       /* одинаковая высота для всех */
-  object-fit: cover;   /* обрезает, чтобы не искажалось */
+  object-fit: cover;
   border-radius: 8px;
   display: block;
+  height: auto;
+  border-radius: 0;
+}
+
+/* === Popup (минимальные стили) === */
+.popup {
+  display: none;           /* скрыт по умолчанию — требование задания */
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.popup.is-open { display: flex; }
+
+.popup-content {
+  background: #fff;
+  width: min(92vw, 420px);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 18px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border: 0;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+/* ===== popup styles for TMNTgram (place into profile.css) ===== */
+
+/* theme-safe variables (если в твоем css уже есть, они переопределятся) */
+:root {
+  --tmnt-surface: #0f1724;   /* фон диалога */
+  --tmnt-card: #121827;      /* карточки */
+  --tmnt-text: #e6eef8;
+  --tmnt-muted: #9aa6bf;
+  --tmnt-accent: #4f8cff;
+  --tmnt-accent-2: #7bdfff;
+  --tmnt-overlay: rgba(8,12,20,0.62);
+}
+
+/* Ensure popup base doesn't conflict with other rules */
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1200; /* выше содержимого страницы */
+  background: var(--tmnt-overlay);
+  backdrop-filter: blur(5px);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* visible state */
+.popup.is-open {
+  display: flex;
+}
+
+/* dialog window */
+.popup__dialog {
+  width: min(92vw, 480px);
+  background: linear-gradient(180deg, var(--tmnt-surface), var(--tmnt-card));
+  color: var(--tmnt-text);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 18px 60px rgba(2,6,23,0.7);
+  border: 1px solid rgba(255,255,255,0.03);
+  transform: translateY(10px) scale(.98);
+  opacity: 0;
+  transition: transform .18s ease, opacity .18s ease;
+  position: relative;
+}
+.popup.is-open .popup__dialog {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* title & close */
+.popup__title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  background: linear-gradient(90deg, var(--tmnt-accent), var(--tmnt-accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.popup__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.02);
+  color: var(--tmnt-muted);
+  border: 1px solid rgba(255,255,255,0.03);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+.popup__close:hover {
+  color: var(--tmnt-text);
+  box-shadow: 0 0 0 6px rgba(79,140,255,0.12);
+}
+
+/* form fields */
+.popup__form { display: grid; gap: 10px; margin-top: 6px; }
+.fld__label { display:block; font-size:13px; color:var(--tmnt-muted); margin-bottom:6px; }
+.fld__control {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  color: var(--tmnt-text);
+  font-size: 14px;
+  box-sizing: border-box;
+}
+.fld__control:focus {
+  outline: none;
+  border-color: var(--tmnt-accent);
+  box-shadow: 0 8px 24px rgba(79,140,255,0.08);
+}
+
+/* actions row */
+.popup__actions { display:flex; gap:10px; justify-content:flex-end; margin-top:6px; }
+.popup__actions .btn { padding: 9px 14px; border-radius: 10px; font-weight: 600; }
+
+/* ensure Contact button visible even with bootstrap overrides */
+.js-open-popup {
+  min-width: 90px;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* small responsive tweak */
+@media (max-width: 420px) {
+  .popup__dialog { padding: 14px; border-radius: 10px; }
 }
 
 /* имя */
@@ -308,7 +468,7 @@ body {
   margin-bottom: 8px;
 }
 
-/* каждая строка информации — горизонтальная, центрированная */
+
 .profile-info div {
   display: flex;
   justify-content: center;   /* всё по центру */
@@ -360,7 +520,6 @@ body {
   color: #fff;
 }
 
-/* блок статистики (Posts / Friends / Followers) */
 .profile-stats {
   display: flex;
   justify-content: center;
@@ -389,8 +548,10 @@ body {
   font-weight: bold;
   color: #0074D9;
 }
-
-/* адаптация для мобильных */
-@media (max-width: 600px) {
-  .profile-card {
-
+ @media (min-width: 768px) and (max-width: 1024px) {
+.profile-posts .post img {
+    border-radius: 50%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+}
