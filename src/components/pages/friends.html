@@ -29,6 +29,13 @@
   </div>
 </section>
 
+<section class="color-change">
+  <div class="container" style="text-align:center; margin:2rem 0;">
+    <h3>Try a new background color!</h3>
+    <button onclick="changeColor()" class="color-btn">Change Background</button>
+  </div>
+</section>
+
 <section class="destinations">
   <div class="container">
     <h3 class="section-title">Friends</h3>
@@ -99,5 +106,12 @@
     </div>
   </div>
 </footer>
+<script>
+  function changeColor() {
+    const colors = ["#51e2f5", "#edf756", "#ffa8b6", "#a28089"];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    document.body.style.backgroundColor = randomColor;
+  }
+</script>
 </body>
 </html>
