@@ -254,7 +254,7 @@ body {
     justify-content: center;
   }
 }
-/* ====== Вариант: всё по центру, но каждая строка горизонтальная ====== */
+
 
 .profile-card {
   display: flex;
@@ -271,14 +271,14 @@ body {
   text-align: center;
 }
 
-/* === Исправление круглого аватара (финальный лёгкий вариант) === */
+
 .profile-card img {
-  width: 150px !important;      /* фиксируем ширину */
-  height: 150px !important;     /* фиксируем высоту */
-  border-radius: 50% !important;/* идеально круглый */
-  object-fit: cover !important; /* не растягивается, просто обрезается по кругу */
+  width: 150px !important;      
+  height: 150px !important;     
+  border-radius: 50% !important;
+  object-fit: cover !important; 
   display: block;
-  margin: 0 auto 15px auto;     /* по центру */
+  margin: 0 auto 15px auto;     
   border: 3px solid #7FDBFF;
 }
 
@@ -460,7 +460,7 @@ body {
   .popup__dialog { padding: 14px; border-radius: 10px; }
 }
 
-/* имя */
+
 .profile-info h3 {
   font-size: 1.6rem;
   font-weight: bold;
@@ -471,21 +471,20 @@ body {
 
 .profile-info div {
   display: flex;
-  justify-content: center;   /* всё по центру */
+  justify-content: center;   
   align-items: center;
-  gap: 6px;                  /* промежуток между “Status:” и текстом */
+  gap: 6px;                  
   font-size: 1rem;
   color: #001f3f;
-  flex-wrap: wrap;           /* чтобы текст не выходил за границы */
+  flex-wrap: wrap;           
 }
 
-/* метки (Status:, About Me:) выделяем жирным */
+
 .profile-info div strong {
   font-weight: 600;
   color: #003366;
 }
 
-/* кнопки */
 .profile-actions {
   display: flex;
   justify-content: center;
