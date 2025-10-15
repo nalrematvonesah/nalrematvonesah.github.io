@@ -26,3 +26,26 @@ body {
     height: 200px;
     object-fit: cover;
 }
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.875em;
+    margin-top: 0.25rem;
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+.accordion-active {
+    max-height: 500px;
+}
+.accordion-header {
+    cursor: pointer;
+    user-select: none;
+    padding: 0.75rem 1rem;
+    background-color: #0074D9;
+    color: white;
+    border-radius: 0.25rem;
+    margin-bottom: 0.25rem;
+}
