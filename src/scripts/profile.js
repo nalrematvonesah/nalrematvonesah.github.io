@@ -1,59 +1,64 @@
-// profile.js — отладочный проверенный вариант
-document.addEventListener("DOMContentLoaded", () => {
-  const overlay = document.getElementById("contactPopup");
-  const openButtons = document.querySelectorAll(".js-open-popup");
-  if (!overlay) {
-    console.error('Popup overlay #contactPopup not found in DOM');
-    return;
-  }
-  if (!openButtons.length) {
-    console.warn('No .js-open-popup buttons found');
-  }
+document.addEventListener('DOMContentLoaded', function () {
+  var overlay = document.getElementById('contactPopup');
+  if (!overlay) return;
 
-  const closeButtons = overlay.querySelectorAll("[data-popup-close]");
-  const form = document.getElementById("popupForm");
+  var openBtns = document.getElementsByClassName('js-open-popup');
 
   function openPopup() {
-    overlay.classList.add("is-open");
-    document.body.classList.add("modal-open");
-    console.log('Popup opened');
+    if ((' ' + overlay.className + ' ').indexOf(' is-open ') === -1) {
+      overlay.className = overlay.className + ' is-open';
+    }
+    document.body.style.overflow = 'hidden';
   }
 
   function closePopup() {
-    overlay.classList.remove("is-open");
-    document.body.classList.remove("modal-open");
-    console.log('Popup closed');
+    overlay.className = overlay.className.replace(' is-open', '');
+    document.body.style.overflow = '';
   }
 
-  openButtons.forEach(btn => btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    openPopup();
-  }));
-
-  closeButtons.forEach(btn => btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    closePopup();
-  }));
-
-  overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) closePopup();
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closePopup();
-  });
-
-  if (form) {
-    form.addEventListener("submit", (e) => {
+  for (var i = 0; i < openBtns.length; i++) {
+    openBtns[i].addEventListener('click', function (e) {
       e.preventDefault();
-      const email = document.getElementById("popupEmail");
-      const message = document.getElementById("popupMessage");
-      if (!email.value.trim() || !message.value.trim()) {
-        alert("Please fill out all fields.");
+      openPopup();
+    });
+  }
+
+  var innerButtons = overlay.getElementsByTagName('button');
+  for (var j = 0; j < innerButtons.length; j++) {
+    var b = innerButtons[j];
+    if (b.hasAttribute && b.hasAttribute('data-popup-close')) {
+      b.addEventListener('click', function (e) {
+        e.preventDefault();
+        closePopup();
+      });
+    }
+  }
+
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) {
+      closePopup();
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closePopup();
+    }
+  });
+
+  var form = document.getElementById('popupForm');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = document.getElementById('popupEmail');
+      var message = document.getElementById('popupMessage');
+
+      if (!email.value || !message.value) {
+        alert('Please fill out all fields.');
         return;
       }
-      // Здесь можно сделать fetch(...) если нужно. Для простоты — уведомление и закрытие.
-      alert("Message sent successfully!");
+
+      alert('Message sent successfully!');
       form.reset();
       closePopup();
     });
