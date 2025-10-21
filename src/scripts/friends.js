@@ -1,3 +1,4 @@
+console.log("friends.js loaded (a6-fix-2)");
 const stars = document.querySelectorAll('.star');
 const ratingText = document.getElementById('rating-text');
 const readMoreBtn = document.getElementById('readMoreBtn');
