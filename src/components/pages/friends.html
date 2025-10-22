@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/src/styles/friends.css">
 </head>
-<body>
+<body data-build="a6-fix-2">
 <header class="header">
   <div class="container">
     <nav class="nav">
@@ -20,9 +20,7 @@
       </div>
     </nav>
   </div>
-  </div>
-    <div id="current-time" style="color:white; margin-top:5px; text-align:right;"></div>
-  </div>
+  <div id="current-time" style="color:white; margin-top:5px; text-align:right;"></div>
 </header>
 
 <section class="hero">
@@ -98,7 +96,32 @@
         <button>Learn More</button>
       </div>
     </div>
-<<<<<<< HEAD
+  </div>
+</section>
+
+<section class="interactive-section" style="text-align:center; margin:3rem 0;">
+  <div class="container">
+    <h3>Rate TMNTgram 💫</h3>
+    <div class="stars">
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+    </div>
+    <p id="rating-text">Click a star to rate!</p>
+
+    <div class="read-more" style="margin-top:2rem;">
+      <p>TMNTgram is a fun social app where you can connect with friends and share adventures.</p>
+      <p id="moreContent" style="display:none;">
+        Built with HTML, CSS and JavaScript — no Bootstrap. You can rate the app, switch themes and try interactive UI!
+      </p>
+      <button id="readMoreBtn" class="color-btn">Read More</button>
+    </div>
+
+    <div class="theme-switch" style="margin-top:2rem;">
+      <button id="themeBtn" class="color-btn">Switch to Night Mode 🌙</button>
+    </div>
   </div>
 </section>
 
@@ -110,20 +133,7 @@
     </div>
   </div>
 </footer>
-<script>
-  function changeColor() {
-    const colors = ["#51e2f5", "#edf756", "#ffa8b6", "#a28089"];
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    document.body.style.backgroundColor = randomColor;
-  }
-</script>
-=======
-  </footer>
-  <script src="../../scripts/time.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<<<<<<< HEAD
->>>>>>> 0e21eb3235c433a356addbcf706af18af93bde44
-=======
->>>>>>> 0e21eb3235c433a356addbcf706af18af93bde44
+
+<script src="../../scripts/friends.js"></script>
 </body>
 </html>
