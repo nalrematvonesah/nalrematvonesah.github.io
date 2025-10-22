@@ -70,7 +70,7 @@ body {
   color: #001f3f;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 575px) {
   .hero-title { font-size: 1.6rem; }
   .hero-description { font-size: 0.9rem; }
 }

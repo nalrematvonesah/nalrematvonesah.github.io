@@ -10,6 +10,42 @@ body {
   color: #001f3f;
   background-color: #fff;
 }
+/* === Popup (минимальные стили) === */
+.popup {
+  display: none;           /* скрыт по умолчанию — требование задания */
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.popup.is-open { display: flex; }
+
+.popup-content {
+  background: #fff;
+  width: min(92vw, 420px);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 18px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border: 0;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
 
 .container {
   max-width: 1200px;
@@ -23,6 +59,43 @@ body {
   padding: 1rem;
   position: sticky;
   top: 0;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-block {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+}
+.nav-links a:hover {
+  color: #7FDBFF;
 }
 
 .nav {
