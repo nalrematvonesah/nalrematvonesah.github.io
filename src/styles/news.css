@@ -14,7 +14,13 @@ body {
 /* HEADER (Flexbox) */
 .header {
   background: #0074D9;
+<<<<<<< HEAD
+<<<<<<< HEAD
   background-color: #0074D9;
+=======
+>>>>>>> 0e21eb3235c433a356addbcf706af18af93bde44
+=======
+>>>>>>> 0e21eb3235c433a356addbcf706af18af93bde44
   color: white;
   padding: 15px 0;
 }
@@ -78,7 +84,13 @@ body {
 .card-subtitle {
   font-size: 12px;
   color: gray;
+<<<<<<< HEAD
+<<<<<<< HEAD
   background-color: #0074D9;
+=======
+>>>>>>> 0e21eb3235c433a356addbcf706af18af93bde44
+=======
+>>>>>>> 0e21eb3235c433a356addbcf706af18af93bde44
 }
 .card-text {
   margin: 10px 0;
@@ -179,4 +191,18 @@ body {
 .card-text {
   font-size: 13px;
   margin: 8px 0;
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 0e21eb3235c433a356addbcf706af18af93bde44
+}
+
+
+.navbar-custom {
+  background-color: #0074D9 !important; /* синий как на скрине */
+<<<<<<< HEAD
+>>>>>>> 0e21eb3235c433a356addbcf706af18af93bde44
+=======
+>>>>>>> 0e21eb3235c433a356addbcf706af18af93bde44
 }

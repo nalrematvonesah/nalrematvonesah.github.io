@@ -1,19 +1,38 @@
-function updateDateTime() {
+document.addEventListener("DOMContentLoaded", function () {
+    function updateTime() {
+      const now = new Date();
+      const formatted = now.toLocaleString("ru-RU", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+      });
+  
+      const timeBlock = document.getElementById("current-time");
+      if (timeBlock) {
+        timeBlock.textContent = formatted;
+      }
+    }
+  
+    updateTime();
+    setInterval(updateTime, 1000);
+  });
+
+
+
+  function updateTime() {
     const now = new Date();
-    const options = {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-      second: "numeric",
-      hour12: true
+    const options = { 
+      hour: '2-digit', 
+      minute: '2-digit', 
+      second: '2-digit' 
     };
-    document.getElementById("current-time").innerText =
-      now.toLocaleString("en-US", options);
+    const formattedTime = now.toLocaleTimeString([], options);
+    document.getElementById("current-time").textContent = formattedTime;
   }
   
-
-  updateDateTime();
-
-  setInterval(updateDateTime, 1000);
+  // запускаем сразу и обновляем каждую секунду
+  updateTime();
+  setInterval(updateTime, 1000);
