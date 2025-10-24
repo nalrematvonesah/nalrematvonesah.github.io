@@ -38,20 +38,24 @@ body {
   color: #fff;
 }
 
-.nav-links {
-  display: flex;
-  gap: 2rem;
+.navbar-custom {
+    background-color: #0074D9;
 }
 
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s;
+.navbar-brand,
+.nav-link {
+    color: #fff !important;
 }
 
-.nav-links a:hover {
-  color: #7FDBFF;
+.nav-link:hover {
+    color: #e0e0e0 !important;
 }
+
+.footer-custom {
+    background-color: #001f3f;
+    color: #fff;
+}
+
 
 .hero {
   text-align: center;

@@ -28,16 +28,22 @@ body {
   top: 0;
   z-index: 1000;
 }
-
-.header .container {
-  width: 100%;
-  max-width: 100%;
-  padding: 0 2rem;
+.navbar-custom {
+    background-color: #0074D9;
 }
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
+.navbar-brand,
+.nav-link {
+    color: #fff !important;
+}
+
+.nav-link:hover {
+    color: #e0e0e0 !important;
+}
+
+.footer-custom {
+    background-color: #001f3f;
+    color: #fff;
 }
 
 .logo-block {

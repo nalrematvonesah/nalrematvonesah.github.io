@@ -11,11 +11,24 @@ body {
   background-color: #ffffff;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+.navbar-custom {
+    background-color: #0074D9;
 }
+
+.navbar-brand,
+.nav-link {
+    color: #fff !important;
+}
+
+.nav-link:hover {
+    color: #e0e0e0 !important;
+}
+
+.footer-custom {
+    background-color: #001f3f;
+    color: #fff;
+}
+
 
 .header {
   background: #0074D9;

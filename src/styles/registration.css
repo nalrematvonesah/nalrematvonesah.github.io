@@ -11,25 +11,24 @@ body {
   line-height: 1.6;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+.navbar-custom {
+    background-color: #0074D9;
 }
 
-.header {
-  background: #0074D9;
-  color: #fff;
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
+.navbar-brand,
+.nav-link {
+    color: #fff !important;
 }
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.nav-link:hover {
+    color: #e0e0e0 !important;
 }
+
+.footer-custom {
+    background-color: #001f3f;
+    color: #fff;
+}
+
 
 .logo {
   font-size: 1.5rem;
