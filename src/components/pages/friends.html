@@ -5,10 +5,11 @@
   <title>Friends | TMNTgram</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/src/styles/friends.css">
-  <link rel="stylesheet" href="../../styles/global.css">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
-<body data-build="a6-fix-2">
+<body>
+<div id="progress-bar"></div>
+
 <header class="header">
 <!-- UNIVERSAL TMNTgram NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #0074D9;">
@@ -139,13 +140,33 @@
     <div class="read-more" style="margin-top:2rem;">
       <p>TMNTgram is a fun social app where you can connect with friends and share adventures.</p>
       <p id="moreContent" style="display:none;">
-        Built with HTML, CSS and JavaScript — no Bootstrap. You can rate the app, switch themes and try interactive UI!
+        Cristiano Ronaldo is the best footballer in our history!
       </p>
       <button id="readMoreBtn" class="color-btn">Read More</button>
     </div>
 
     <div class="theme-switch" style="margin-top:2rem;">
       <button id="themeBtn" class="color-btn">Switch to Night Mode 🌙</button>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container">
+    <h3 class="section-title">TMNTgram Stats</h3>
+    <div class="stats-row">
+      <div class="stat">
+        <div class="counter" data-target="1200">0</div>
+        <p>Users</p>
+      </div>
+      <div class="stat">
+        <div class="counter" data-target="350">0</div>
+        <p>Posts</p>
+      </div>
+      <div class="stat">
+        <div class="counter" data-target="87">0</div>
+        <p>Active Today</p>
+      </div>
     </div>
   </div>
 </section>

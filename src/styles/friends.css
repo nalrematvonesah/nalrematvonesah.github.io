@@ -258,30 +258,43 @@ body {
   transform: scale(1.05);
 }
 
-
-
-
-.navbar {
-  height: 70px;
-  font-size: 17px;
-  letter-spacing: 0.5px;
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 6px;
+  background: linear-gradient(to right, #0074D9, #7FDBFF);
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.25s ease;
 }
 
-.navbar-brand {
-  font-size: 22px;
+.stats {
+  padding: 2.5rem 1rem;
 }
-
-.nav-link {
-  color: rgba(255, 255, 255, 0.8) !important;
-  transition: color 0.2s ease;
+.stats-row {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-
-.nav-link:hover {
-  color: #fff !important;
+.stat {
+  min-width: 160px;
+  padding: 1rem 1.25rem;
+  text-align: center;
+  border: 1px solid #0074D9;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0,0,0,.08);
 }
-
-.nav-link.active {
-  color: #ffffff !important;
-  font-weight: 600;
-  border-bottom: 2px solid #ffffff;
+.counter {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0074D9;
+  line-height: 1;
+  margin-bottom: .25rem;
+}
+.stats p {
+  color: #001f3f;
+  opacity: .85;
 }

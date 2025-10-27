@@ -45,3 +45,49 @@ function changeColor() {
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     document.body.style.backgroundColor = randomColor;
 }
+
+$(document).ready(function() {
+    $(window).on("scroll", function() {
+        const scrollTop = $(this).scrollTop();
+        const docHeight = $(document).height() - $(window).height();
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        $("#progress-bar").css("width", scrollPercent + "%");
+    });
+});
+
+$(document).ready(function () {
+    const $counters = $(".counter");
+    let started = false;
+
+    function animateCounters() {
+        if (started) return;
+        const triggerPoint = $(window).scrollTop() + $(window).height();
+
+        const statsTop = $(".stats").offset() ? $(".stats").offset().top : null;
+        if (statsTop && triggerPoint >= statsTop - 50) {
+            started = true;
+
+            $counters.each(function () {
+                const $el = $(this);
+                const target = parseInt($el.data("target"), 10) || 0;
+
+                $({ val: 0 }).animate(
+                    { val: target },
+                    {
+                        duration: 2000,
+                        easing: "swing",
+                        step: function (now) {
+                            $el.text(Math.floor(now));
+                        },
+                        complete: function () {
+                            $el.text(target);
+                        }
+                    }
+                );
+            });
+        }
+    }
+
+    animateCounters();
+    $(window).on("scroll", animateCounters);
+});
