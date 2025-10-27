@@ -183,6 +183,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var userCityEl = document.getElementById('userCity');
   var userEduEl = document.getElementById('userEdu');
 
+var person = {
+  name: "Alikhan",
+  age: 18,
+  greeting: f
+  
+};
+console.log("Name: " + person.name);
+console.log("Age: " + person.age);
+
   var translations = {
     en: {
       siteTitle: 'TMNTgram',
@@ -273,4 +282,53 @@ document.addEventListener('DOMContentLoaded', function () {
       ln.setAttribute('tabindex', n === 0 ? '0' : '-1');
     }
   })();
+});
+// Task 0: проверка jQuery и Task 6: спиннер на отправке попапа
+$(document).ready(function() {
+  console.log("jQuery is ready!");
+
+  // Обработчик отправки формы в попапе
+  $("#popupForm").on("submit", function(e) {
+    e.preventDefault(); // не перезагружать страницу
+
+    const $form = $(this);
+    const $submitBtn = $form.find('button[type="submit"]'); // кнопка Send
+    const $status = $("#popupStatus");
+
+    // Сохраняем оригинальный HTML кнопки, чтобы вернуть потом
+    const originalBtnHtml = $submitBtn.html();
+
+    // Показать спиннер и вариант "Please wait..."
+    $submitBtn.html('<span class="spinner"></span> Please wait...');
+    $submitBtn.prop("disabled", true);
+
+    // Обновляем статус попапа (необязательно, но полезно)
+    $status.text("Sending message...");
+
+    // Симуляция серверного запроса (3 секунды)
+    setTimeout(function() {
+      // вернуть кнопку в исходное состояние
+      $submitBtn.html(originalBtnHtml);
+      $submitBtn.prop("disabled", false);
+
+      // Обновить статус и показать уведомление внутри попапа
+      $status.text("Message sent successfully!");
+
+      // Очистить поля формы (по желанию)
+      $form.find("input, textarea").val("");
+
+      // (опция) закрывать попап автоматически — если у тебя есть логика закрытия,
+      // можно вызвать её здесь. Я этого не делаю автоматически, чтобы не менять твою логику попапа.
+    }, 3000);
+  });
+
+  // Доп. мелочь: кнопка "Next" и "Back" (если в profile.js ещё нет логики)
+  $("#toStep2").on("click", function() {
+    $('[data-step="1"]').addClass('d-none');
+    $('[data-step="2"]').removeClass('d-none');
+  });
+  $("#backToStep1").on("click", function() {
+    $('[data-step="2"]').addClass('d-none');
+    $('[data-step="1"]').removeClass('d-none');
+  });
 });
