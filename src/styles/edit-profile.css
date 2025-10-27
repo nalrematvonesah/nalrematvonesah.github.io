@@ -47,24 +47,22 @@ body {
   line-height: 1;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+.navbar-custom {
+    background-color: #0074D9;
 }
 
-.header {
-  background: #0074D9;
-  color: #fff;
-  padding: 1rem;
-  position: sticky;
-  top: 0;
+.navbar-brand,
+.nav-link {
+    color: #fff !important;
 }
 
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.nav-link:hover {
+    color: #e0e0e0 !important;
+}
+
+.footer-custom {
+    background-color: #001f3f;
+    color: #fff;
 }
 
 .logo-block {
@@ -235,4 +233,30 @@ body {
   }
   .hero-title { font-size: 1.3rem; }
   .container { padding: 0 0.3rem; }
+}
+
+
+.navbar {
+  height: 70px;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+}
+
+.navbar-brand {
+  font-size: 22px;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #fff !important;
+}
+
+.nav-link.active {
+  color: #ffffff !important;
+  font-weight: 600;
+  border-bottom: 2px solid #ffffff;
 }

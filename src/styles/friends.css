@@ -11,12 +11,6 @@ body {
   line-height: 1.6;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
 .header {
   background: #0074D9;
   color: #fff;
@@ -26,31 +20,11 @@ body {
   z-index: 10;
 }
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-.nav-links {
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover {
-  color: #7FDBFF;
-}
 
 .hero {
   text-align: center;
@@ -230,6 +204,26 @@ body {
     flex: 1 1 30%;
   }
 }
+
+
+.navbar-custom {
+    background-color: #0074D9;
+}
+
+.navbar-brand,
+.nav-link {
+    color: #fff !important;
+}
+
+.nav-link:hover {
+    color: #e0e0e0 !important;
+}
+
+.footer-custom {
+    background-color: #001f3f;
+    color: #fff;
+}
+
 
 .footer {
   background: #001f3f;
