@@ -100,3 +100,4 @@ function playSound(fileName) {
 likeBtn.addEventListener('click', () => playSound('like.mp3'));
 followBtn.addEventListener('click', () => playSound('follow.mp3'));
 shareBtn.addEventListener('click', () => playSound('share.mp3'));
+
