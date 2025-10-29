@@ -299,11 +299,11 @@ body {
 }
 
 .profile-posts .post img {
-  width: 100%;
+  width: 400px;
   object-fit: cover;
   border-radius: 8px;
   display: block;
-  height: auto;
+  height: 400px;
   border-radius: 0;
 }
 
@@ -477,12 +477,12 @@ body {
 
 .profile-info div {
   display: flex;
-  justify-content: center;   
+  justify-content: center;
   align-items: center;
-  gap: 6px;                  
+  gap: 6px;
   font-size: 1rem;
   color: #001f3f;
-  flex-wrap: wrap;           
+  flex-wrap: wrap;
 }
 
 .spinner {

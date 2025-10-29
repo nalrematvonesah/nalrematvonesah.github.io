@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // ---------- Общие элементы (без раннего return) ----------
   var overlay = document.getElementById('contactPopup'); // может быть null — допустимо
   var openBtns = document.getElementsByClassName('js-open-popup');
 
-  // ---------- 0) SHOW TIME (click) ----------
   var timeBtn = document.getElementById('timeBtn');
   var timeOut = document.getElementById('timeOut');
   if (timeBtn && timeOut) {
@@ -13,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ---------- 1) NAVIGATION KEYBOARD (ArrowLeft / ArrowRight) ----------
   var navLinksContainer = document.querySelector('.nav-links');
   var navLinks = [];
   if (navLinksContainer) {
@@ -44,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ---------- 2) POPUP open/close ----------
   function openPopup() {
     if (!overlay) return;
     if ((' ' + overlay.className + ' ').indexOf(' is-open ') === -1) {
@@ -98,7 +94,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.key === 'Escape') closePopup();
   });
 
-  // ---------- 3) Multi-step popup form ----------
   var popupForm = document.getElementById('popupForm');
   var popupStatus = document.getElementById('popupStatus');
   var toStep2Btn = document.getElementById('toStep2');
@@ -165,7 +160,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ---------- 4) Translations (robust) ----------
   var langSelect = document.getElementById('lang');
   var siteTitle = document.getElementById('siteTitle');
 
@@ -182,16 +176,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var userBirthdayEl = document.getElementById('userBirthday');
   var userCityEl = document.getElementById('userCity');
   var userEduEl = document.getElementById('userEdu');
-
-var person = {
-  name: "Alikhan",
-  age: 18,
-  greeting: f
-  
-};
-console.log("Name: " + person.name);
-console.log("Age: " + person.age);
-
   var translations = {
     en: {
       siteTitle: 'TMNTgram',
@@ -273,7 +257,6 @@ console.log("Age: " + person.age);
     applyTranslations('ru');
   }
 
-  // ---------- 5) Ensure first nav link tabbable ----------
   (function ensureNavTabindex() {
     var navAnchors2 = document.querySelectorAll('.nav-links a');
     if (!navAnchors2 || navAnchors2.length === 0) return;
@@ -283,46 +266,31 @@ console.log("Age: " + person.age);
     }
   })();
 });
-// Task 0: проверка jQuery и Task 6: спиннер на отправке попапа
+
 $(document).ready(function() {
   console.log("jQuery is ready!");
 
-  // Обработчик отправки формы в попапе
   $("#popupForm").on("submit", function(e) {
-    e.preventDefault(); // не перезагружать страницу
+    e.preventDefault();
 
     const $form = $(this);
-    const $submitBtn = $form.find('button[type="submit"]'); // кнопка Send
+    const $submitBtn = $form.find('button[type="submit"]');
     const $status = $("#popupStatus");
 
-    // Сохраняем оригинальный HTML кнопки, чтобы вернуть потом
     const originalBtnHtml = $submitBtn.html();
 
-    // Показать спиннер и вариант "Please wait..."
     $submitBtn.html('<span class="spinner"></span> Please wait...');
     $submitBtn.prop("disabled", true);
-
-    // Обновляем статус попапа (необязательно, но полезно)
     $status.text("Sending message...");
 
-    // Симуляция серверного запроса (3 секунды)
     setTimeout(function() {
-      // вернуть кнопку в исходное состояние
       $submitBtn.html(originalBtnHtml);
       $submitBtn.prop("disabled", false);
-
-      // Обновить статус и показать уведомление внутри попапа
       $status.text("Message sent successfully!");
-
-      // Очистить поля формы (по желанию)
       $form.find("input, textarea").val("");
-
-      // (опция) закрывать попап автоматически — если у тебя есть логика закрытия,
-      // можно вызвать её здесь. Я этого не делаю автоматически, чтобы не менять твою логику попапа.
     }, 3000);
   });
 
-  // Доп. мелочь: кнопка "Next" и "Back" (если в profile.js ещё нет логики)
   $("#toStep2").on("click", function() {
     $('[data-step="1"]').addClass('d-none');
     $('[data-step="2"]').removeClass('d-none');
