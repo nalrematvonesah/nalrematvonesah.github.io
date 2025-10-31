@@ -4,8 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="author" content="TMNTgram Team" />
     <title>TMNTgram</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
     <link rel="stylesheet" href="/src/styles/homepage.css" />
+    <style>
+        .copy-snippet {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .snippet-text {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-dark navbar-expand-sm sticky-top navbar-custom">
@@ -21,7 +33,6 @@
         <a class="nav-link" href="registration.html">Registration</a>
     </div>
 </div>
-</div>
     <div id="current-time" style="color:white; margin-top:5px; text-align:right;"></div>
 </div>
 </nav>
@@ -30,14 +41,16 @@
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
         <div class="col">
             <div class="card h-100 shadow-sm">
-                <img src="/src/assets/img/ALDIYAR.jpg" class="card-img-top" alt="Aldiyar" />
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" 
+                     data-src="/src/assets/img/ALDIYAR.jpg" 
+                     class="card-img-top lazy-load-img" 
+                     alt="Aldiyar" />
                 <div class="card-body">
                     <h5 class="card-title">Aldiyar</h5>
                     <p class="card-text">A great photo of Aldiyar, sharing a moment from his latest adventure.</p>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 <div class="container my-5">
@@ -71,19 +84,37 @@
     <div class="accordion-item">
         <div class="accordion-header">What is TMNTgram?</div>
         <div class="accordion-content">
-            <p>TMNTgram is a social platform for sharing photos and connecting with friends.</p>
+            <div class="copy-snippet">
+                <p class="snippet-text mb-0">TMNTgram is a social platform for sharing photos and connecting with friends.</p>
+                <button type="button" class="btn btn-sm btn-outline-secondary copy-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+                        <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"/>
+                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"/>
+                    </svg>
+                </button>
+            </div>
         </div>
     </div>
     <div class="accordion-item">
         <div class="accordion-header">How do I create an account?</div>
         <div class="accordion-content">
-            <p>You can create an account by filling out the signup form above and submitting it.</p>
+            <div class="copy-snippet">
+                <p class="snippet-text mb-0">You can create an account by filling out the signup form above and submitting it.</p>
+                <button type="button" class="btn btn-sm btn-outline-secondary copy-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"/></svg>
+                </button>
+            </div>
         </div>
     </div>
     <div class="accordion-item">
         <div class="accordion-header">Can I upload photos?</div>
         <div class="accordion-content">
-            <p>Yes, once logged in, you can upload your favorite photos to share with others.</p>
+            <div class="copy-snippet">
+                <p class="snippet-text mb-0">Yes, once logged in, you can upload your favorite photos to share with others.</p>
+                <button type="button" class="btn btn-sm btn-outline-secondary copy-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"/></svg>
+                </button>
+            </div>
         </div>
     </div>
 </div>
@@ -94,10 +125,9 @@
             <p class="mb-0 text-white-50">Developed by: Tamerlan Khassenov, Alikhan Sekenov, Aldiyar Bazarbayev, Aldiyar Gaisa</p>
         </div>
     </div>
-    </footer>
-        <script src="/src/scripts/homepage.js"></script>
-    </footer>
+</footer>
+    <script src="/src/scripts/homepage.js"></script>
     <script src="../../scripts/time.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
