@@ -74,3 +74,12 @@ body {
     margin-bottom: 0.25rem;
 }
 
+.copy-snippet {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.snippet-text {
+    flex-grow: 1;
+    margin-right: 10px;
+}
