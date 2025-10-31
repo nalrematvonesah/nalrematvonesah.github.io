@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // ---------- Общие элементы (без раннего return) ----------
   var overlay = document.getElementById('contactPopup'); // может быть null — допустимо
   var openBtns = document.getElementsByClassName('js-open-popup');
 
-  // ---------- 0) SHOW TIME (click) ----------
   var timeBtn = document.getElementById('timeBtn');
   var timeOut = document.getElementById('timeOut');
   if (timeBtn && timeOut) {
@@ -13,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ---------- 1) NAVIGATION KEYBOARD (ArrowLeft / ArrowRight) ----------
   var navLinksContainer = document.querySelector('.nav-links');
   var navLinks = [];
   if (navLinksContainer) {
@@ -44,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ---------- 2) POPUP open/close ----------
   function openPopup() {
     if (!overlay) return;
     if ((' ' + overlay.className + ' ').indexOf(' is-open ') === -1) {
@@ -98,7 +94,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.key === 'Escape') closePopup();
   });
 
-  // ---------- 3) Multi-step popup form ----------
   var popupForm = document.getElementById('popupForm');
   var popupStatus = document.getElementById('popupStatus');
   var toStep2Btn = document.getElementById('toStep2');
@@ -165,7 +160,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ---------- 4) Translations (robust) ----------
   var langSelect = document.getElementById('lang');
   var siteTitle = document.getElementById('siteTitle');
 
@@ -182,7 +176,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var userBirthdayEl = document.getElementById('userBirthday');
   var userCityEl = document.getElementById('userCity');
   var userEduEl = document.getElementById('userEdu');
-
   var translations = {
     en: {
       siteTitle: 'TMNTgram',
@@ -264,7 +257,6 @@ document.addEventListener('DOMContentLoaded', function () {
     applyTranslations('ru');
   }
 
-  // ---------- 5) Ensure first nav link tabbable ----------
   (function ensureNavTabindex() {
     var navAnchors2 = document.querySelectorAll('.nav-links a');
     if (!navAnchors2 || navAnchors2.length === 0) return;
@@ -273,4 +265,38 @@ document.addEventListener('DOMContentLoaded', function () {
       ln.setAttribute('tabindex', n === 0 ? '0' : '-1');
     }
   })();
+});
+
+$(document).ready(function() {
+  console.log("jQuery is ready!");
+
+  $("#popupForm").on("submit", function(e) {
+    e.preventDefault();
+
+    const $form = $(this);
+    const $submitBtn = $form.find('button[type="submit"]');
+    const $status = $("#popupStatus");
+
+    const originalBtnHtml = $submitBtn.html();
+
+    $submitBtn.html('<span class="spinner"></span> Please wait...');
+    $submitBtn.prop("disabled", true);
+    $status.text("Sending message...");
+
+    setTimeout(function() {
+      $submitBtn.html(originalBtnHtml);
+      $submitBtn.prop("disabled", false);
+      $status.text("Message sent successfully!");
+      $form.find("input, textarea").val("");
+    }, 3000);
+  });
+
+  $("#toStep2").on("click", function() {
+    $('[data-step="1"]').addClass('d-none');
+    $('[data-step="2"]').removeClass('d-none');
+  });
+  $("#backToStep1").on("click", function() {
+    $('[data-step="2"]').addClass('d-none');
+    $('[data-step="1"]').removeClass('d-none');
+  });
 });

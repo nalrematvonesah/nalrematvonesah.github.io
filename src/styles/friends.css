@@ -257,3 +257,44 @@ body {
   background-color: #39c1d6;
   transform: scale(1.05);
 }
+
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 6px;
+  background: linear-gradient(to right, #0074D9, #7FDBFF);
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.25s ease;
+}
+
+.stats {
+  padding: 2.5rem 1rem;
+}
+.stats-row {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.stat {
+  min-width: 160px;
+  padding: 1rem 1.25rem;
+  text-align: center;
+  border: 1px solid #0074D9;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0,0,0,.08);
+}
+.counter {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0074D9;
+  line-height: 1;
+  margin-bottom: .25rem;
+}
+.stats p {
+  color: #001f3f;
+  opacity: .85;
+}
