@@ -1,144 +1,151 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="author" content="TMNTgram Team" />
-    <title>TMNTgram</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/src/styles/homepage.css" />
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta charset="utf-8"/>
+<meta content="TMNTgram Team" name="author"/>
+<title>TMNTgram</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="/src/styles/homepage.css" rel="stylesheet"/>
+<link href="/src/styles/global.css" rel="stylesheet"/>
 </head>
 <body>
 <!-- UNIVERSAL TMNTgram NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #0074D9;">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="homepage.html">TMNTgram</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+<div class="container-fluid">
+<a class="navbar-brand fw-bold" href="homepage.html">TMNTgram</a>
+<button aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button" aria-label="Toggle navigation">>&gt;
         <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="homepage.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="friends.html">Friends</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="profile.html">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="news.html">News</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="search.html">Search</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="authorization.html">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="registration.html">Registration</a>
-          </li>
-        </ul>
-        <span id="current-time" class="text-white ms-3 small"></span>
-      </div>
-    </div>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item">
+<a class="nav-link" href="homepage.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="friends.html">Friends</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="profile.html">Profile</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="news.html">News</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="search.html">Search</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="authorization.html">Login</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="registration.html">Registration</a>
+</li>
+<li class="nav-item ms-2">
+<button aria-label="Toggle dark mode" aria-pressed="false" class="btn btn-outline-light btn-sm" id="theme-toggle" onclick="toggleTheme()" type="button">
+<span class="d-none d-sm-inline">Day/Night</span> 🌙
+  </button>
+</li>
+</ul>
+<span class="text-white ms-3 small" id="current-time"></span>
 </div>
-    <div id="current-time" style="color:white; margin-top:5px; text-align:right;"></div>
 </div>
+
+<div id="current-time-extra" style="color:white; margin-top:5px; text-align:right;"></div>
+
 </nav>
 <div class="container my-5">
-    <h2 class="mb-4 text-center">Featured Photos</h2>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" 
-                     data-src="/src/assets/img/ALDIYAR.jpg" 
-                     class="card-img-top lazy-load-img" 
-                     alt="Aldiyar" />
-                <div class="card-body">
-                    <h5 class="card-title">Aldiyar</h5>
-                    <p class="card-text">A great photo of Aldiyar, sharing a moment from his latest adventure.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+<h2 class="mb-4 text-center">Featured Photos</h2>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+<div class="col">
+<div class="card h-100 shadow-sm">
+<img alt="Aldiyar" class="card-img-top lazy-load-img" data-src="/src/assets/img/ALDIYAR.jpg" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
+<div class="card-body">
+<h5 class="card-title">Aldiyar</h5>
+<p class="card-text">A great photo of Aldiyar, sharing a moment from his latest adventure.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="container my-5">
-    <h2 class="mb-4 text-center">Sign Up Form</h2>
-    <form id="signupForm" novalidate>
-        <div class="mb-3">
-            <label for="name" class="form-label">Name *</label>
-            <input type="text" class="form-control" id="name" name="name" required />
-            <div id="name-error" class="error-message"></div>
-        </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email *</label>
-            <input type="email" class="form-control" id="email" name="email" required />
-            <div id="email-error" class="error-message"></div>
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Password *</label>
-            <input type="password" class="form-control" id="password" name="password" required minlength="8" />
-            <div id="password-error" class="error-message"></div>
-        </div>
-        <div class="mb-3">
-            <label for="confirmPassword" class="form-label">Confirm Password *</label>
-            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required minlength="8" />
-            <div id="confirmPassword-error" class="error-message"></div>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+<h2 class="mb-4 text-center">Sign Up Form</h2>
+<form class="needs-validation" id="signupForm" novalidate="True">
+<div class="mb-3">
+<label class="form-label" for="name">Name *</label>
+<input aria-label="name" class="form-control" id="name" name="name" required="" type="text"/>
+<div class="error-message" id="name-error"></div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="email">Email *</label>
+<input aria-label="email" class="form-control" id="email" name="email" pattern="[^@\\s]+@[^@\\s]+\\.[^@\\s]+" required="" type="email"/>
+<div class="error-message" id="email-error"></div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="password">Password *</label>
+<input aria-label="password" class="form-control" id="password" minlength="8" name="password" required="" type="password"/>
+<div class="error-message" id="password-error"></div>
+</div>
+<div class="mb-3">
+<label class="form-label" for="confirmPassword">Confirm Password *</label>
+<input aria-label="confirmPassword" class="form-control" id="confirmPassword" minlength="8" name="confirmPassword" required="" type="password"/>
+<div class="error-message" id="confirmPassword-error"></div>
+</div>
+<button class="btn btn-primary" type="submit">Submit</button>
+</form>
 </div>
 <div class="container my-5">
-    <h2 class="mb-4 text-center">FAQ</h2>
-    <div class="accordion-item">
-        <div class="accordion-header">What is TMNTgram?</div>
-        <div class="accordion-content">
-            <div class="copy-snippet">
-                <p class="snippet-text mb-0">TMNTgram is a social platform for sharing photos and connecting with friends.</p>
-                <button type="button" class="btn btn-sm btn-outline-secondary copy-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
-                        <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"/>
-                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="accordion-item">
-        <div class="accordion-header">How do I create an account?</div>
-        <div class="accordion-content">
-            <div class="copy-snippet">
-                <p class="snippet-text mb-0">You can create an account by filling out the signup form above and submitting it.</p>
-                <button type="button" class="btn btn-sm btn-outline-secondary copy-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"/></svg>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="accordion-item">
-        <div class="accordion-header">Can I upload photos?</div>
-        <div class="accordion-content">
-            <div class="copy-snippet">
-                <p class="snippet-text mb-0">Yes, once logged in, you can upload your favorite photos to share with others.</p>
-                <button type="button" class="btn btn-sm btn-outline-secondary copy-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"/></svg>
-                </button>
-            </div>
-        </div>
-    </div>
+<h2 class="mb-4 text-center">FAQ</h2>
+<div class="accordion-item">
+<div class="accordion-header">What is TMNTgram?</div>
+<div class="accordion-content">
+<div class="copy-snippet">
+<p class="snippet-text mb-0">TMNTgram is a social platform for sharing photos and connecting with friends.</p>
+<button class="btn btn-sm btn-outline-secondary copy-btn" data-bs-placement="top" data-bs-toggle="tooltip" title="Copy to clipboard" type="button">
+<svg class="bi bi-clipboard" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"></path>
+<path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<div class="accordion-header">How do I create an account?</div>
+<div class="accordion-content">
+<div class="copy-snippet">
+<p class="snippet-text mb-0">You can create an account by filling out the signup form above and submitting it.</p>
+<button class="btn btn-sm btn-outline-secondary copy-btn" data-bs-placement="top" data-bs-toggle="tooltip" title="Copy to clipboard" type="button">
+<svg class="bi bi-clipboard" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"></path><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"></path></svg>
+</button>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<div class="accordion-header">Can I upload photos?</div>
+<div class="accordion-content">
+<div class="copy-snippet">
+<p class="snippet-text mb-0">Yes, once logged in, you can upload your favorite photos to share with others.</p>
+<button class="btn btn-sm btn-outline-secondary copy-btn" data-bs-placement="top" data-bs-toggle="tooltip" title="Copy to clipboard" type="button">
+<svg class="bi bi-clipboard" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"></path><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"></path></svg>
+</button>
+</div>
+</div>
+</div>
 </div>
 <footer>
-    <div class="footer-custom py-3 mt-5">
-        <div class="container text-center">
-            <p class="mb-1 text-white-50">© 2025 TMNTgram. All rights reserved.</p>
-            <p class="mb-0 text-white-50">Developed by: Tamerlan Khassenov, Alikhan Sekenov, Aldiyar Bazarbayev, Aldiyar Gaisa</p>
-        </div>
-    </div>
+<div class="footer-custom py-3 mt-5">
+<div class="container text-center">
+<p class="mb-1 text-white-50">© 2025 TMNTgram. All rights reserved.</p>
+<p class="mb-0 text-white-50">Developed by: Tamerlan Khassenov, Alikhan Sekenov, Aldiyar Bazarbayev, Aldiyar Gaisa</p>
+</div>
+</div>
 </footer>
-    <script src="/src/scripts/homepage.js"></script>
-    <script src="../../scripts/time.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="/src/scripts/homepage.js"></script>
+<script src="../../scripts/time.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/src/scripts/theme.js"></script>
+<script src="/src/scripts/validation.js"></script>
 </body>
 </html>

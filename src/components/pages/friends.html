@@ -1,189 +1,202 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Friends | TMNTgram</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/src/styles/friends.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-</head>
+<meta charset="utf-8"/>
+<title>Friends | TMNTgram</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="/src/styles/friends.css" rel="stylesheet"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="/src/styles/global.css" rel="stylesheet">
+</link></head>
 <body>
 <div id="progress-bar"></div>
-
-<header class="header">
 <!-- UNIVERSAL TMNTgram NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #0074D9;">
-  <div class="container-fluid">
-    <a class="navbar-brand fw-bold" href="homepage.html">TMNTgram</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="homepage.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="friends.html">Friends</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="profile.html">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="news.html">News</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="search.html">Search</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="authorization.html">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="registration.html">Registration</a>
-        </li>
-      </ul>
-      <span id="current-time" class="text-white ms-3 small"></span>
-    </div>
-  </div>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+<div class="container-fluid">
+<a class="navbar-brand fw-bold" href="homepage.html">TMNTgram</a>
+<button aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button" aria-label="Toggle navigation">>&gt;
+        <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item">
+<a class="nav-link" href="homepage.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="friends.html">Friends</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="profile.html">Profile</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="news.html">News</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="search.html">Search</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="authorization.html">Login</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="registration.html">Registration</a>
+</li>
+<li class="nav-item ms-2">
+<button aria-label="Toggle dark mode" aria-pressed="false" class="btn btn-outline-light btn-sm" id="theme-toggle" onclick="toggleTheme()" type="button">
+<span class="d-none d-sm-inline">Day/Night</span> 🌙
+  </button>
+</li>
+</ul>
+<span class="text-white ms-3 small" id="current-time"></span>
+</div>
+</div>
+
+<div id="current-time-extra" style="color:white; margin-top:5px; text-align:right;"></div>
+
 </nav>
-  <div id="current-time" style="color:white; margin-top:5px; text-align:right;"></div>
-</header>
-
+<div id="current-time-extra" style="color:white; margin-top:5px; text-align:right;"></div>
 <section class="hero">
-  <div class="container">
-    <h2 class="hero-title">My Friends</h2>
-    <p class="hero-description">Here’s your friends list on TMNTgram.</p>
-  </div>
+<div class="container">
+<h2 class="hero-title">My Friends</h2>
+<p class="hero-description">Here’s your friends list on TMNTgram.</p>
+</div>
 </section>
-
 <section class="color-change">
-  <div class="container" style="text-align:center; margin:2rem 0;">
-    <h3>Try a new background color!</h3>
-    <button onclick="changeColor()" class="color-btn">Change Background</button>
-  </div>
+<div class="container" style="text-align:center; margin:2rem 0;">
+<h3>Try a new background color!</h3>
+<button class="color-btn" onclick="changeColor()">Change Background</button>
+</div>
 </section>
-
 <section class="destinations">
-  <div class="container">
-    <h3 class="section-title">Friends</h3>
-
-    <div class="grid">
-      <div class="card">
-        <div class="card-image medium-blue" style="display:flex;align-items:center;justify-content:center;">
-          <img src="../../assets/img/ALDIYAR.jpg" alt="Aldiyar" width="80" height="80" style="border-radius:50%;border:4px solid #0074D9;">
-        </div>
-        <div class="card-content">
-          <h4 class="card-title">Aldiyar</h4>
-          <p class="card-subtitle">Online</p>
-          <button class="btn btn-card">Message</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image medium-blue" style="display:flex;align-items:center;justify-content:center;">
-          <img src="../../assets/img/assylkhan.jpg" alt="Assylkhan" width="80" height="80" style="border-radius:50%;border:4px solid #0074D9;">
-        </div>
-        <div class="card-content">
-          <h4 class="card-title">Assylkhan</h4>
-          <p class="card-subtitle">Busy</p>
-          <button class="btn btn-card">Message</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image medium-blue" style="display:flex;align-items:center;justify-content:center;">
-          <img src="../../assets/img/ASKHAT.jpg" alt="Askhat" width="80" height="80" style="border-radius:50%;border:4px solid #0074D9;">
-        </div>
-        <div class="card-content">
-          <h4 class="card-title">Askhat</h4>
-          <p class="card-subtitle">Offline</p>
-          <button class="btn btn-card">Message</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="card-row">
-      <div class="card-mini">
-        <img src="/src/assets/img/shrek1.jpeg" alt="Card Image 1">
-        <h3>Card 1</h3>
-        <p>This is a description for card 1.</p>
-        <button>Learn More</button>
-      </div>
-      <div class="card-mini">
-        <img src="/src/assets/img/shrek1.jpeg" alt="Card Image 2">
-        <h3>Card 2</h3>
-        <p>This is a description for card 2.</p>
-        <button>Learn More</button>
-      </div>
-      <div class="card-mini">
-        <img src="/src/assets/img/shrek1.jpeg" alt="Card Image 3">
-        <h3>Card 3</h3>
-        <p>This is a description for card 3.</p>
-        <button>Learn More</button>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<h3 class="section-title">Friends</h3>
+<div class="grid">
+<div class="card">
+<div class="card-image medium-blue" style="display:flex;align-items:center;justify-content:center;">
+<img alt="Aldiyar" height="80" loading="lazy" src="../../assets/img/ALDIYAR.jpg" style="border-radius:50%;border:4px solid #0074D9;" width="80"/>
+</div>
+<div class="card-content">
+<h4 class="card-title">Aldiyar</h4>
+<p class="card-subtitle">Online</p>
+<button class="btn btn-success" data-bs-target="#msgModal" data-bs-toggle="modal" type="button">Message</button>
+</div>
+</div>
+<div class="card">
+<div class="card-image medium-blue" style="display:flex;align-items:center;justify-content:center;">
+<img alt="Assylkhan" height="80" loading="lazy" src="../../assets/img/assylkhan.jpg" style="border-radius:50%;border:4px solid #0074D9;" width="80"/>
+</div>
+<div class="card-content">
+<h4 class="card-title">Assylkhan</h4>
+<p class="card-subtitle">Busy</p>
+<button class="btn btn-success" data-bs-target="#msgModal" data-bs-toggle="modal" type="button">Message</button>
+</div>
+</div>
+<div class="card">
+<div class="card-image medium-blue" style="display:flex;align-items:center;justify-content:center;">
+<img alt="Askhat" height="80" loading="lazy" src="../../assets/img/ASKHAT.jpg" style="border-radius:50%;border:4px solid #0074D9;" width="80"/>
+</div>
+<div class="card-content">
+<h4 class="card-title">Askhat</h4>
+<p class="card-subtitle">Offline</p>
+<button class="btn btn-success" data-bs-target="#msgModal" data-bs-toggle="modal" type="button">Message</button>
+</div>
+</div>
+</div>
+<div class="card-row">
+<div class="card-mini">
+<img alt="Card Image 1" loading="lazy" src="/src/assets/img/shrek1.jpeg"/>
+<h3>Card 1</h3>
+<p>This is a description for card 1.</p>
+<button onclick="actionToast(this.textContent.trim() + ' clicked')" type="button">Learn More</button>
+</div>
+<div class="card-mini">
+<img alt="Card Image 2" loading="lazy" src="/src/assets/img/shrek1.jpeg"/>
+<h3>Card 2</h3>
+<p>This is a description for card 2.</p>
+<button onclick="actionToast(this.textContent.trim() + ' clicked')" type="button">Learn More</button>
+</div>
+<div class="card-mini">
+<img alt="Card Image 3" loading="lazy" src="/src/assets/img/shrek1.jpeg"/>
+<h3>Card 3</h3>
+<p>This is a description for card 3.</p>
+<button onclick="actionToast(this.textContent.trim() + ' clicked')" type="button">Learn More</button>
+</div>
+</div>
+</div>
 </section>
-
 <section class="interactive-section" style="text-align:center; margin:3rem 0;">
-  <div class="container">
-    <h3>Rate TMNTgram 💫</h3>
-    <div class="stars">
-      <span class="star">★</span>
-      <span class="star">★</span>
-      <span class="star">★</span>
-      <span class="star">★</span>
-      <span class="star">★</span>
-    </div>
-    <p id="rating-text">Click a star to rate!</p>
-
-    <div class="read-more" style="margin-top:2rem;">
-      <p>TMNTgram is a fun social app where you can connect with friends and share adventures.</p>
-      <p id="moreContent" style="display:none;">
+<div class="container">
+<h3>Rate TMNTgram 💫</h3>
+<div class="stars">
+<span class="star">★</span>
+<span class="star">★</span>
+<span class="star">★</span>
+<span class="star">★</span>
+<span class="star">★</span>
+</div>
+<p id="rating-text">Click a star to rate!</p>
+<div class="read-more" style="margin-top:2rem;">
+<p>TMNTgram is a fun social app where you can connect with friends and share adventures.</p>
+<p id="moreContent" style="display:none;">
         Cristiano Ronaldo is the best footballer in our history!
       </p>
-      <button id="readMoreBtn" class="color-btn">Read More</button>
-    </div>
-
-    <div class="theme-switch" style="margin-top:2rem;">
-      <button id="themeBtn" class="color-btn">Switch to Night Mode 🌙</button>
-    </div>
-  </div>
+<button class="color-btn" id="readMoreBtn" onclick="actionToast(this.textContent.trim() + ' clicked')" type="button">Read More</button>
+</div>
+<div class="theme-switch" style="margin-top:2rem;">
+<button class="color-btn" id="themeBtn" onclick="actionToast(this.textContent.trim() + ' clicked')" type="button">Switch to Night Mode 🌙</button>
+</div>
+</div>
 </section>
-
 <section class="stats">
-  <div class="container">
-    <h3 class="section-title">TMNTgram Stats</h3>
-    <div class="stats-row">
-      <div class="stat">
-        <div class="counter" data-target="1200">0</div>
-        <p>Users</p>
-      </div>
-      <div class="stat">
-        <div class="counter" data-target="350">0</div>
-        <p>Posts</p>
-      </div>
-      <div class="stat">
-        <div class="counter" data-target="87">0</div>
-        <p>Active Today</p>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<h3 class="section-title">TMNTgram Stats</h3>
+<div class="stats-row">
+<div class="stat">
+<div class="counter" data-target="1200">0</div>
+<p>Users</p>
+</div>
+<div class="stat">
+<div class="counter" data-target="350">0</div>
+<p>Posts</p>
+</div>
+<div class="stat">
+<div class="counter" data-target="87">0</div>
+<p>Active Today</p>
+</div>
+</div>
+</div>
 </section>
-
 <footer class="footer">
-  <div class="container">
-    <div class="footer-bottom">
-      <p>Team: Tamerlan Khasenov • Alikhan Sekenov • Aldiyar Bazarbayev • Aldiyar Gaisa</p>
-      <p>© 2025 TMNTgram. All rights reserved.</p>
-    </div>
-  </div>
+<div class="container">
+<div class="footer-bottom">
+<p>Team: Tamerlan Khasenov • Alikhan Sekenov • Aldiyar Bazarbayev • Aldiyar Gaisa</p>
+<p>© 2025 TMNTgram. All rights reserved.</p>
+</div>
+</div>
 </footer>
-
 <script src="../../scripts/friends.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../scripts/time.js"></script>
-<link rel="stylesheet" href="../../styles/global.css">
+<link href="../../styles/global.css" rel="stylesheet"/>
+<script src="/src/scripts/theme.js"></script>
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+<div aria-atomic="true" aria-live="polite" class="toast" id="actionToast" role="status">
+<div class="toast-header">
+<strong class="me-auto">TMNTgram</strong>
+<small>Now</small>
+<button aria-label="Close" class="btn-close" data-bs-dismiss="toast" onclick="actionToast(this.textContent.trim() + ' clicked')" type="button"></button>
+</div>
+<div class="toast-body" id="toastBody">Action completed.</div>
+</div>
+</div>
+<script>
+function actionToast(msg){
+  const b = document.getElementById('toastBody');
+  if(b) b.textContent = msg || 'Action completed.';
+  const t = new bootstrap.Toast(document.getElementById('actionToast'));
+  t.show();
+}
+</script>
 </body>
 </html>

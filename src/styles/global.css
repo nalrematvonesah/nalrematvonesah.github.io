@@ -1,53 +1,78 @@
+
+/* === Global styles + Day/Night themes (WCAG AA contrast) === */
+
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #555555;
+  --card: #f8f9fa;
+  --link: #0d6efd;
+  --nav-bg: #0d6efd;   /* light mode navbar */
+  --nav-text: #ffffff; /* light mode text on navbar */
+  --border: #dee2e6;
+}
+
+/* Dark theme */
+.theme-dark {
+  --bg: #0d1117;
+  --text: #e6edf3;
+  --muted: #9ba1a6;
+  --card: #161b22;
+  --link: #58a6ff;
+  --nav-bg: #161b22;   /* dark mode navbar */
+  --nav-text: #ffffff; /* dark mode text on navbar */
+  --border: #30363d;
+}
+
+/* Base styling */
+html, body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+/* Navbar (force background + link colors regardless of page classes) */
 .navbar {
-    background-color: #0074D9 !important;
-    height: 70px !important; 
-    padding: 0 !important;
-    margin: 0 !important;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .navbar .container,
-  .navbar .container-fluid {
-    padding: 0 !important;
-    margin: 0 !important;
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
-  
-  .navbar-brand {
-    color: #fff !important;
-    font-size: 22px !important;
-    font-weight: 700;
-    margin: 0;
-  }
-  
-  .nav-link {
-    color: rgba(255, 255, 255, 0.85) !important;
-    font-size: 16px;
-    font-weight: 500;
-    margin: 0 8px;
-    padding: 20px 10px !important; 
-    transition: color 0.2s ease-in-out;
-  }
-  
-  .nav-link:hover,
-  .nav-link.active {
-    color: #fff !important;
-    border-bottom: 2px solid #fff;
-  }
-  
-  .navbar-toggler {
-    border: none !important;
-    outline: none !important;
-  }
-  
-  @media (max-width: 992px) {
-    .navbar {
-      height: auto !important;
-      padding: 10px 0 !important;
-    }
-  }
+  background-color: var(--nav-bg) !important;
+}
+.navbar .navbar-brand,
+.navbar .nav-link,
+.navbar .navbar-toggler {
+  color: var(--nav-text) !important;
+}
+.navbar .nav-link:hover,
+.navbar .navbar-brand:hover {
+  color: var(--link) !important;
+}
+.navbar .navbar-toggler-icon {
+  filter: invert(1); /* keeps hamburger visible on dark backgrounds */
+}
+
+/* Cards, containers */
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,.05);
+}
+
+/* Links */
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Buttons */
+.btn { border-radius: .5rem; font-weight: 500; }
+.btn-primary { background-color: var(--link); border-color: var(--link); }
+.btn-outline-light { color: var(--nav-text); border-color: var(--nav-text); }
+
+/* Text utilities */
+.text-muted, .form-text { color: var(--muted) !important; }
+img { max-width: 100%; height: auto; border-radius: .5rem; }
+
+/* Accessibility */
+:focus { outline: 2px solid var(--link); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

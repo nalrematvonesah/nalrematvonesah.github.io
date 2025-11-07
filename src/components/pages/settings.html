@@ -1,49 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta charset="utf-8">
   <title>Settings | TMNTgram</title>
   <link rel="stylesheet" href="/src/styles/settings.css">
+  <link rel="stylesheet" href="/src/styles/global.css" />
 </head>
 <body>
   <header class="header">
     <div class="container">
       <!-- UNIVERSAL TMNTgram NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #0074D9;">
-  <div class="container-fluid">
-    <a class="navbar-brand fw-bold" href="homepage.html">TMNTgram</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="homepage.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="friends.html">Friends</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="profile.html">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="news.html">News</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="search.html">Search</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="authorization.html">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="registration.html">Registration</a>
-        </li>
-      </ul>
-      <span id="current-time" class="text-white ms-3 small"></span>
-    </div>
-  </div>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+<div class="container-fluid">
+<a class="navbar-brand fw-bold" href="homepage.html">TMNTgram</a>
+<button aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button" aria-label="Toggle navigation">>&gt;
+        <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item">
+<a class="nav-link" href="homepage.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="friends.html">Friends</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="profile.html">Profile</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="news.html">News</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="search.html">Search</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="authorization.html">Login</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="registration.html">Registration</a>
+</li>
+<li class="nav-item ms-2">
+<button aria-label="Toggle dark mode" aria-pressed="false" class="btn btn-outline-light btn-sm" id="theme-toggle" onclick="toggleTheme()" type="button">
+<span class="d-none d-sm-inline">Day/Night</span> 🌙
+  </button>
+</li>
+</ul>
+<span class="text-white ms-3 small" id="current-time"></span>
+</div>
+</div>
+
+<div id="current-time-extra" style="color:white; margin-top:5px; text-align:right;"></div>
+
 </nav>
-      <div id="current-time" style="color:white; margin-top:5px; text-align:right;"></div>
+      <div id="current-time-extra" style="color:white; margin-top:5px; text-align:right;"></div>
 
     </div>
   </header>
@@ -86,5 +96,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>|
   <link rel="stylesheet" href="../../styles/global.css">
 
+
+<script src="/src/scripts/theme.js"></script>
 </body>
 </html>
