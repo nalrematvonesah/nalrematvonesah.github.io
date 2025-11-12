@@ -1,165 +1,78 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>TMNTgram Profile</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="../../styles/profile.css" rel="stylesheet"/>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<link href="/src/styles/global.css" rel="stylesheet">
-</link></head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-<div class="container-fluid">
-<a class="navbar-brand fw-bold" href="homepage.html">TMNTgram</a>
-<button aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button" aria-label="Toggle navigation">>&gt;
-        <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNav">
-<ul class="navbar-nav ms-auto">
-<li class="nav-item">
-<a class="nav-link" href="homepage.html">Home</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="friends.html">Friends</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="profile.html">Profile</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="news.html">News</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="search.html">Search</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="authorization.html">Login</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="registration.html">Registration</a>
-</li>
-<li class="nav-item ms-2">
-<button aria-label="Toggle dark mode" aria-pressed="false" class="btn btn-outline-light btn-sm" id="theme-toggle" onclick="toggleTheme()" type="button">
-<span class="d-none d-sm-inline">Day/Night</span> 🌙
-  </button>
-</li>
-</ul>
-<span class="text-white ms-3 small" id="current-time"></span>
-</div>
-</div>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TMNTgram — Profile</title>
 
-<div id="current-time-extra" style="color:white; margin-top:5px; text-align:right;"></div>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-</nav>
-<section class="profile-section">
-<div class="container py-4">
-<div class="row g-4">
-<div class="col-lg-8 col-md-12">
-<div class="profile-card card p-3 h-100">
-<div class="d-flex flex-column flex-md-row gap-3">
-<img alt="Profile Picture" class="img-fluid rounded" loading="lazy" src="https://media.tenor.com/Ch_6P9HWkf8AAAAM/guy-crying-meme-guy-crying.gif" style="max-width:180px; height:auto;"/>
-<div class="profile-info d-flex flex-column">
-<h2 class="mb-2" id="userName">Alikhan Sekenov</h2>
-<div class="mb-2"><strong>Status:</strong> <span id="userStatus">Student, Web Developer</span></div>
-<div class="mb-2"><strong>About Me:</strong> <span id="userAbout">Second-year student interested in web development and design.</span></div>
-<div class="mb-2"><strong>Birthday:</strong> <span id="userBirthday">25 June 2007</span></div>
-<div class="mb-2"><strong>City:</strong> <span id="userCity">Astana</span></div>
-<div class="mb-3"><strong>Education:</strong> <span id="userEdu">AITU, Information Technology</span></div>
-<div class="profile-actions d-flex gap-2 mt-auto">
-<a class="btn btn-primary" href="edit-profile.html" id="editProfileLink">Edit Profile</a>
-<button class="btn btn-outline-secondary js-open-popup" data-popup-target="#contactPopup" type="button">
-                    Contact
-                  </button>
-<a class="btn btn-secondary" href="homepage.html">Back to Home</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-12">
-<div class="profile-stats card p-3 h-100">
-<div class="d-flex flex-column gap-3">
-<div class="d-flex justify-content-between align-items-center">
-<strong>Posts</strong><span>3</span>
-</div>
-<div class="d-flex justify-content-between align-items-center">
-<strong>Friends</strong><span>128</span>
-</div>
-<div class="d-flex justify-content-between align-items-center">
-<strong>Followers</strong><span>452</span>
-</div>
-<div class="social-buttons d-flex gap-2 mt-3">
-<a class="btn btn-outline-secondary btn-sm" href="#">Twitter</a>
-<a class="btn btn-outline-secondary btn-sm" href="#">LinkedIn</a>
-<a class="btn btn-outline-secondary btn-sm" href="#">GitHub</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="row g-3 mt-4 profile-posts">
-<div class="col-lg-4 col-md-6 col-sm-12">
-<div class="post card p-2 h-100">
-<img alt="Post 1" class="img-fluid rounded" loading="lazy" src="https://www.meme-arsenal.com/memes/33611e355eeecea02ccfa2b111924d90.jpg"/>
-<p class="post-caption mt-2 mb-0">Happy Birthday to Me!</p>
-</div>
-</div>
-<div class="col-lg-4 col-md-6 col-sm-12">
-<div class="post card p-2 h-100">
-<img alt="Post 2" class="img-fluid rounded" loading="lazy" src="https://i.pinimg.com/236x/80/b7/81/80b781691d46d7f7a352a349ff48515f.jpg"/>
-<p class="post-caption mt-2 mb-0">Weekend vibes 🌿</p>
-</div>
-</div>
-<div class="col-lg-4 col-md-6 col-sm-12">
-<div class="post card p-2 h-100">
-<img alt="Post 3" class="img-fluid rounded" loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsPpf-nNlNQi4PjRX2XTEGXvL6GFY3j0TrxQ&amp;s"/>
-<p class="post-caption mt-2 mb-0">I realized who I am...</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<footer class="footer">
-<div class="container py-3">
-<p class="mb-0">© 2025 TMNTgram. Developed by: Tamerlan Khasenov, Alikhan Sekenov, Aldiyar Bazarbayev, Aldiyar Gaisa</p>
-</div>
-</footer>
-<div aria-hidden="true" class="popup" id="contactPopup">
-<div aria-labelledby="popupTitle" aria-modal="true" class="popup__dialog" role="dialog">
-<button aria-label="Close" class="popup__close" data-popup-close="">×</button>
-<h2 class="popup__title" id="popupTitle">Contact</h2>
-<form class="popup__form needs-validation" id="popupForm" novalidate="True">
-<div class="step" data-step="1">
-<label class="fld">
-<span class="fld__label">Email</span>
-<input aria-label="you@example.com" class="fld__control" id="popupEmail" name="email" pattern="[^@\\s]+@[^@\\s]+\\.[^@\\s]+" placeholder="you@example.com" required="" type="email"/>
-</label>
-<div class="popup__actions">
-<button class="btn btn-secondary" data-popup-close="" type="button">Cancel</button>
-<button class="btn btn-primary" id="toStep2" type="button">Next →</button>
-</div>
-</div>
-<div class="step d-none" data-step="2">
-<label class="fld">
-<span class="fld__label">Message</span>
-<textarea aria-label="Your message..." class="fld__control" id="popupMessage" name="message" placeholder="Your message..." required="" rows="4"></textarea>
-</label>
-<div class="popup__actions">
-<button class="btn btn-secondary" id="backToStep1" type="button">← Back</button>
-<button class="btn btn-primary" type="submit">Send</button>
-</div>
-</div>
-</form>
-<div id="popupStatus" style="margin-top:10px;color:#333;">Fill the form to send a message</div>
-</div>
-</div>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../../scripts/profile.js"></script>
-<link href="../../styles/global.css" rel="stylesheet"/>
-<script src="/src/scripts/theme.js"></script>
-<script src="/src/scripts/validation.js"></script>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide icons -->
+  <script type="module">
+    import { createIcons, User, Home, Zap, Search, Settings, LogOut } from 'https://unpkg.com/lucide@latest/dist/esm/lucide.js';
+    createIcons({ icons: { User, Home, Zap, Search, Settings, LogOut } });
+  </script>
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="/src/styles/profile.css">
+</head>
+<body class="dark">
+
+  <!-- Toast -->
+  <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
+
+  <div id="app" class="flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-tmnt-purple p-4 shadow-xl sticky top-0 z-40">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="homepage.html" class="text-white text-2xl font-bold tracking-wider hover:text-tmnt-green transition-colors">TMNTgram</a>
+
+        <div class="hidden lg:flex items-center space-x-6">
+          <a href="news.html" class="text-white flex items-center space-x-1 hover:text-tmnt-green"><i data-lucide="zap" class="w-5 h-5"></i><span>Feed</span></a>
+          <a href="profile.html" class="text-tmnt-green flex items-center space-x-1 font-semibold"><i data-lucide="user" class="w-5 h-5"></i><span>Profile</span></a>
+          <a href="explore.html" class="text-white flex items-center space-x-1 hover:text-tmnt-green"><i data-lucide="search" class="w-5 h-5"></i><span>Explore</span></a>
+          <a href="settings.html" class="text-white flex items-center space-x-1 hover:text-tmnt-green"><i data-lucide="settings" class="w-5 h-5"></i><span>Settings</span></a>
+          <a href="#" id="auth-link" class="text-white flex items-center space-x-1 hover:text-tmnt-green"></a>
+        </div>
+
+        <!-- Mobile -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-full hover:bg-tmnt-green/30 transition-all" aria-label="Open menu">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 right-0 bg-tmnt-purple/95 backdrop-blur-sm shadow-xl z-30">
+      <div class="flex flex-col p-4 space-y-2 text-white">
+        <a href="homepage.html" class="flex items-center space-x-2"><i data-lucide="home" class="w-5 h-5"></i><span>Home</span></a>
+        <a href="news.html" class="flex items-center space-x-2"><i data-lucide="zap" class="w-5 h-5"></i><span>Feed</span></a>
+        <a href="profile.html" class="flex items-center space-x-2"><i data-lucide="user" class="w-5 h-5"></i><span>Profile</span></a>
+        <a href="settings.html" class="flex items-center space-x-2"><i data-lucide="settings" class="w-5 h-5"></i><span>Settings</span></a>
+        <a href="#" id="auth-link-mobile" class="flex items-center space-x-2"></a>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <main class="flex-grow container mx-auto p-6">
+      <section class="py-8 max-w-3xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-8 text-tmnt-purple">My Profile & Dojo Status</h2>
+        <div id="profile-content"></div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-auto bg-tmnt-dark p-4 text-center text-gray-400">
+      <p class="text-sm">&copy; 2025 TMNTgram. Heroes in a half shell.</p>
+    </footer>
+  </div>
+
+  <!-- JS -->
+  <script src="/src/scripts/profile.js"></script>
 </body>
 </html>

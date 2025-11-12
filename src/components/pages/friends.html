@@ -1,202 +1,112 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<title>Friends | TMNTgram</title>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="/src/styles/friends.css" rel="stylesheet"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<link href="/src/styles/global.css" rel="stylesheet">
-</link></head>
-<body>
-<div id="progress-bar"></div>
-<!-- UNIVERSAL TMNTgram NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-<div class="container-fluid">
-<a class="navbar-brand fw-bold" href="homepage.html">TMNTgram</a>
-<button aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button" aria-label="Toggle navigation">>&gt;
-        <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNav">
-<ul class="navbar-nav ms-auto">
-<li class="nav-item">
-<a class="nav-link" href="homepage.html">Home</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="friends.html">Friends</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="profile.html">Profile</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="news.html">News</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="search.html">Search</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="authorization.html">Login</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="registration.html">Registration</a>
-</li>
-<li class="nav-item ms-2">
-<button aria-label="Toggle dark mode" aria-pressed="false" class="btn btn-outline-light btn-sm" id="theme-toggle" onclick="toggleTheme()" type="button">
-<span class="d-none d-sm-inline">Day/Night</span> 🌙
-  </button>
-</li>
-</ul>
-<span class="text-white ms-3 small" id="current-time"></span>
-</div>
-</div>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TMNTgram — Friends / Allies</title>
 
-<div id="current-time-extra" style="color:white; margin-top:5px; text-align:right;"></div>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-</nav>
-<div id="current-time-extra" style="color:white; margin-top:5px; text-align:right;"></div>
-<section class="hero">
-<div class="container">
-<h2 class="hero-title">My Friends</h2>
-<p class="hero-description">Here’s your friends list on TMNTgram.</p>
-</div>
-</section>
-<section class="color-change">
-<div class="container" style="text-align:center; margin:2rem 0;">
-<h3>Try a new background color!</h3>
-<button class="color-btn" onclick="changeColor()">Change Background</button>
-</div>
-</section>
-<section class="destinations">
-<div class="container">
-<h3 class="section-title">Friends</h3>
-<div class="grid">
-<div class="card">
-<div class="card-image medium-blue" style="display:flex;align-items:center;justify-content:center;">
-<img alt="Aldiyar" height="80" loading="lazy" src="../../assets/img/ALDIYAR.jpg" style="border-radius:50%;border:4px solid #0074D9;" width="80"/>
-</div>
-<div class="card-content">
-<h4 class="card-title">Aldiyar</h4>
-<p class="card-subtitle">Online</p>
-<button class="btn btn-success" data-bs-target="#msgModal" data-bs-toggle="modal" type="button">Message</button>
-</div>
-</div>
-<div class="card">
-<div class="card-image medium-blue" style="display:flex;align-items:center;justify-content:center;">
-<img alt="Assylkhan" height="80" loading="lazy" src="../../assets/img/assylkhan.jpg" style="border-radius:50%;border:4px solid #0074D9;" width="80"/>
-</div>
-<div class="card-content">
-<h4 class="card-title">Assylkhan</h4>
-<p class="card-subtitle">Busy</p>
-<button class="btn btn-success" data-bs-target="#msgModal" data-bs-toggle="modal" type="button">Message</button>
-</div>
-</div>
-<div class="card">
-<div class="card-image medium-blue" style="display:flex;align-items:center;justify-content:center;">
-<img alt="Askhat" height="80" loading="lazy" src="../../assets/img/ASKHAT.jpg" style="border-radius:50%;border:4px solid #0074D9;" width="80"/>
-</div>
-<div class="card-content">
-<h4 class="card-title">Askhat</h4>
-<p class="card-subtitle">Offline</p>
-<button class="btn btn-success" data-bs-target="#msgModal" data-bs-toggle="modal" type="button">Message</button>
-</div>
-</div>
-</div>
-<div class="card-row">
-<div class="card-mini">
-<img alt="Card Image 1" loading="lazy" src="/src/assets/img/shrek1.jpeg"/>
-<h3>Card 1</h3>
-<p>This is a description for card 1.</p>
-<button onclick="actionToast(this.textContent.trim() + ' clicked')" type="button">Learn More</button>
-</div>
-<div class="card-mini">
-<img alt="Card Image 2" loading="lazy" src="/src/assets/img/shrek1.jpeg"/>
-<h3>Card 2</h3>
-<p>This is a description for card 2.</p>
-<button onclick="actionToast(this.textContent.trim() + ' clicked')" type="button">Learn More</button>
-</div>
-<div class="card-mini">
-<img alt="Card Image 3" loading="lazy" src="/src/assets/img/shrek1.jpeg"/>
-<h3>Card 3</h3>
-<p>This is a description for card 3.</p>
-<button onclick="actionToast(this.textContent.trim() + ' clicked')" type="button">Learn More</button>
-</div>
-</div>
-</div>
-</section>
-<section class="interactive-section" style="text-align:center; margin:3rem 0;">
-<div class="container">
-<h3>Rate TMNTgram 💫</h3>
-<div class="stars">
-<span class="star">★</span>
-<span class="star">★</span>
-<span class="star">★</span>
-<span class="star">★</span>
-<span class="star">★</span>
-</div>
-<p id="rating-text">Click a star to rate!</p>
-<div class="read-more" style="margin-top:2rem;">
-<p>TMNTgram is a fun social app where you can connect with friends and share adventures.</p>
-<p id="moreContent" style="display:none;">
-        Cristiano Ronaldo is the best footballer in our history!
-      </p>
-<button class="color-btn" id="readMoreBtn" onclick="actionToast(this.textContent.trim() + ' clicked')" type="button">Read More</button>
-</div>
-<div class="theme-switch" style="margin-top:2rem;">
-<button class="color-btn" id="themeBtn" onclick="actionToast(this.textContent.trim() + ' clicked')" type="button">Switch to Night Mode 🌙</button>
-</div>
-</div>
-</section>
-<section class="stats">
-<div class="container">
-<h3 class="section-title">TMNTgram Stats</h3>
-<div class="stats-row">
-<div class="stat">
-<div class="counter" data-target="1200">0</div>
-<p>Users</p>
-</div>
-<div class="stat">
-<div class="counter" data-target="350">0</div>
-<p>Posts</p>
-</div>
-<div class="stat">
-<div class="counter" data-target="87">0</div>
-<p>Active Today</p>
-</div>
-</div>
-</div>
-</section>
-<footer class="footer">
-<div class="container">
-<div class="footer-bottom">
-<p>Team: Tamerlan Khasenov • Alikhan Sekenov • Aldiyar Bazarbayev • Aldiyar Gaisa</p>
-<p>© 2025 TMNTgram. All rights reserved.</p>
-</div>
-</div>
-</footer>
-<script src="../../scripts/friends.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../../scripts/time.js"></script>
-<link href="../../styles/global.css" rel="stylesheet"/>
-<script src="/src/scripts/theme.js"></script>
-<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-<div aria-atomic="true" aria-live="polite" class="toast" id="actionToast" role="status">
-<div class="toast-header">
-<strong class="me-auto">TMNTgram</strong>
-<small>Now</small>
-<button aria-label="Close" class="btn-close" data-bs-dismiss="toast" onclick="actionToast(this.textContent.trim() + ' clicked')" type="button"></button>
-</div>
-<div class="toast-body" id="toastBody">Action completed.</div>
-</div>
-</div>
-<script>
-function actionToast(msg){
-  const b = document.getElementById('toastBody');
-  if(b) b.textContent = msg || 'Action completed.';
-  const t = new bootstrap.Toast(document.getElementById('actionToast'));
-  t.show();
-}
-</script>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide icons -->
+  <script type="module">
+    import { createIcons, Users, Send, Home, Search, Zap, User, LogOut } from 'https://unpkg.com/lucide@latest/dist/esm/lucide.js';
+    createIcons({ icons: { Users, Send, Home, Search, Zap, User, LogOut } });
+  </script>
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="/src/styles/friends.css">
+</head>
+<body class="dark">
+
+  <!-- Toast -->
+  <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
+
+  <div id="app" class="flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-tmnt-purple p-4 shadow-xl sticky top-0 z-40">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="home.html" class="text-white text-2xl font-bold tracking-wider hover:text-tmnt-green transition-colors">TMNTgram</a>
+
+        <div class="hidden lg:flex items-center space-x-6">
+          <a href="news.html" class="text-white flex items-center space-x-1 hover:text-tmnt-green"><i data-lucide="zap" class="w-5 h-5"></i><span>Feed</span></a>
+          <a href="friends.html" class="text-tmnt-green flex items-center space-x-1 font-semibold"><i data-lucide="users" class="w-5 h-5"></i><span>Friends</span></a>
+          <a href="messages.html" class="text-white flex items-center space-x-1 hover:text-tmnt-green"><i data-lucide="send" class="w-5 h-5"></i><span>DMs</span></a>
+          <a href="profile.html" class="text-white flex items-center space-x-1 hover:text-tmnt-green"><i data-lucide="user" class="w-5 h-5"></i><span>Profile</span></a>
+          <a href="#" id="auth-link" class="text-white flex items-center space-x-1 hover:text-tmnt-green"></a>
+        </div>
+
+        <!-- Mobile -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-full hover:bg-tmnt-green/30 transition-all" aria-label="Open menu">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 right-0 bg-tmnt-purple/95 backdrop-blur-sm shadow-xl z-30">
+      <div class="flex flex-col p-4 space-y-2 text-white">
+        <a href="home.html" class="flex items-center space-x-2"><i data-lucide="home" class="w-5 h-5"></i><span>Home</span></a>
+        <a href="news.html" class="flex items-center space-x-2"><i data-lucide="zap" class="w-5 h-5"></i><span>Feed</span></a>
+        <a href="friends.html" class="flex items-center space-x-2"><i data-lucide="users" class="w-5 h-5"></i><span>Friends</span></a>
+        <a href="messages.html" class="flex items-center space-x-2"><i data-lucide="send" class="w-5 h-5"></i><span>Messages</span></a>
+        <a href="profile.html" class="flex items-center space-x-2"><i data-lucide="user" class="w-5 h-5"></i><span>Profile</span></a>
+        <a href="#" id="auth-link-mobile" class="flex items-center space-x-2"></a>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <main class="flex-grow container mx-auto p-6">
+      <section class="py-8">
+        <h2 class="text-4xl font-bold text-center mb-8 text-tmnt-purple">My Allies and Friends</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <!-- Raphael -->
+          <div class="friend-card card p-6 text-center shadow-lg">
+            <div class="avatar bg-red-600">R</div>
+            <h3 class="text-xl font-semibold">Raphael</h3>
+            <p class="opacity-75 text-sm mb-3">Status: Active (Last post 1h ago)</p>
+            <button class="animated-btn w-full mt-3 px-4 py-2 rounded-lg font-semibold bg-red-600 hover:bg-red-700"
+              style="--accent-green:#DC2626;--shadow-color:rgba(220,38,38,0.4);" onclick="messageFriend('Raphael')">Message</button>
+          </div>
+
+          <!-- April -->
+          <div class="friend-card card p-6 text-center shadow-lg">
+            <div class="avatar bg-yellow-400 text-tmnt-dark">A</div>
+            <h3 class="text-xl font-semibold">April O'Neil</h3>
+            <p class="opacity-75 text-sm mb-3">Status: Busy (Reporting on Channel 6)</p>
+            <button class="animated-btn w-full mt-3 px-4 py-2 rounded-lg font-semibold bg-yellow-400 hover:bg-yellow-500"
+              style="--accent-green:#FBBF24;--shadow-color:rgba(251,191,36,0.4);" onclick="messageFriend('April')">Message</button>
+          </div>
+
+          <!-- Splinter -->
+          <div class="friend-card card p-6 text-center shadow-lg">
+            <div class="avatar bg-gray-500">M</div>
+            <h3 class="text-xl font-semibold">Master Splinter</h3>
+            <p class="opacity-75 text-sm mb-3">Status: Meditating (Do Not Disturb)</p>
+            <button class="animated-btn w-full mt-3 px-4 py-2 rounded-lg font-semibold bg-gray-500 hover:bg-gray-600"
+              style="--accent-green:#6B7280;--shadow-color:rgba(107,114,128,0.4);" onclick="showToast('Master Splinter is meditating. Try later.')">Message</button>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <button class="animated-btn px-6 py-3 rounded-xl font-bold text-lg bg-tmnt-purple hover:bg-tmnt-purple/80"
+            style="--accent-green:var(--accent-purple);--shadow-color:rgba(132,94,247,0.4);" onclick="findAllies()">Find More Allies</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-auto bg-tmnt-dark p-4 text-center text-gray-400">
+      <p class="text-sm">&copy; 2025 TMNTgram. Brothers in arms.</p>
+    </footer>
+  </div>
+
+  <!-- JS -->
+  <script src="/src/scripts/friends.js"></script>
 </body>
 </html>

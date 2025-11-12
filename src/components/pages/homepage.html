@@ -1,151 +1,113 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta charset="utf-8"/>
-<meta content="TMNTgram Team" name="author"/>
-<title>TMNTgram</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="/src/styles/homepage.css" rel="stylesheet"/>
-<link href="/src/styles/global.css" rel="stylesheet"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TMNTgram — Home</title>
+
+  <!-- Tailwind (utility classes) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide icons -->
+  <script type="module">
+    import { createIcons, Home, Users, Search, Settings, Send, PlusCircle, User, Zap, LogOut } from 'https://unpkg.com/lucide@latest/dist/esm/lucide.js';
+    createIcons({ icons: { Home, Users, Search, Settings, Send, PlusCircle, User, Zap, LogOut } });
+  </script>
+
+  <!-- Page specific CSS -->
+  <link rel="stylesheet" href="/src/styles/homepage.css">
 </head>
-<body>
-<!-- UNIVERSAL TMNTgram NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-<div class="container-fluid">
-<a class="navbar-brand fw-bold" href="homepage.html">TMNTgram</a>
-<button aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button" aria-label="Toggle navigation">>&gt;
-        <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNav">
-<ul class="navbar-nav ms-auto">
-<li class="nav-item">
-<a class="nav-link" href="homepage.html">Home</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="friends.html">Friends</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="profile.html">Profile</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="news.html">News</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="search.html">Search</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="authorization.html">Login</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="registration.html">Registration</a>
-</li>
-<li class="nav-item ms-2">
-<button aria-label="Toggle dark mode" aria-pressed="false" class="btn btn-outline-light btn-sm" id="theme-toggle" onclick="toggleTheme()" type="button">
-<span class="d-none d-sm-inline">Day/Night</span> 🌙
-  </button>
-</li>
-</ul>
-<span class="text-white ms-3 small" id="current-time"></span>
-</div>
-</div>
+<body class="dark">
 
-<div id="current-time-extra" style="color:white; margin-top:5px; text-align:right;"></div>
+  <div id="app" class="flex flex-col min-h-screen">
 
-</nav>
-<div class="container my-5">
-<h2 class="mb-4 text-center">Featured Photos</h2>
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-<div class="col">
-<div class="card h-100 shadow-sm">
-<img alt="Aldiyar" class="card-img-top lazy-load-img" data-src="/src/assets/img/ALDIYAR.jpg" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>
-<div class="card-body">
-<h5 class="card-title">Aldiyar</h5>
-<p class="card-text">A great photo of Aldiyar, sharing a moment from his latest adventure.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="container my-5">
-<h2 class="mb-4 text-center">Sign Up Form</h2>
-<form class="needs-validation" id="signupForm" novalidate="True">
-<div class="mb-3">
-<label class="form-label" for="name">Name *</label>
-<input aria-label="name" class="form-control" id="name" name="name" required="" type="text"/>
-<div class="error-message" id="name-error"></div>
-</div>
-<div class="mb-3">
-<label class="form-label" for="email">Email *</label>
-<input aria-label="email" class="form-control" id="email" name="email" pattern="[^@\\s]+@[^@\\s]+\\.[^@\\s]+" required="" type="email"/>
-<div class="error-message" id="email-error"></div>
-</div>
-<div class="mb-3">
-<label class="form-label" for="password">Password *</label>
-<input aria-label="password" class="form-control" id="password" minlength="8" name="password" required="" type="password"/>
-<div class="error-message" id="password-error"></div>
-</div>
-<div class="mb-3">
-<label class="form-label" for="confirmPassword">Confirm Password *</label>
-<input aria-label="confirmPassword" class="form-control" id="confirmPassword" minlength="8" name="confirmPassword" required="" type="password"/>
-<div class="error-message" id="confirmPassword-error"></div>
-</div>
-<button class="btn btn-primary" type="submit">Submit</button>
-</form>
-</div>
-<div class="container my-5">
-<h2 class="mb-4 text-center">FAQ</h2>
-<div class="accordion-item">
-<div class="accordion-header">What is TMNTgram?</div>
-<div class="accordion-content">
-<div class="copy-snippet">
-<p class="snippet-text mb-0">TMNTgram is a social platform for sharing photos and connecting with friends.</p>
-<button class="btn btn-sm btn-outline-secondary copy-btn" data-bs-placement="top" data-bs-toggle="tooltip" title="Copy to clipboard" type="button">
-<svg class="bi bi-clipboard" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"></path>
-<path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"></path>
-</svg>
-</button>
-</div>
-</div>
-</div>
-<div class="accordion-item">
-<div class="accordion-header">How do I create an account?</div>
-<div class="accordion-content">
-<div class="copy-snippet">
-<p class="snippet-text mb-0">You can create an account by filling out the signup form above and submitting it.</p>
-<button class="btn btn-sm btn-outline-secondary copy-btn" data-bs-placement="top" data-bs-toggle="tooltip" title="Copy to clipboard" type="button">
-<svg class="bi bi-clipboard" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"></path><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"></path></svg>
-</button>
-</div>
-</div>
-</div>
-<div class="accordion-item">
-<div class="accordion-header">Can I upload photos?</div>
-<div class="accordion-content">
-<div class="copy-snippet">
-<p class="snippet-text mb-0">Yes, once logged in, you can upload your favorite photos to share with others.</p>
-<button class="btn btn-sm btn-outline-secondary copy-btn" data-bs-placement="top" data-bs-toggle="tooltip" title="Copy to clipboard" type="button">
-<svg class="bi bi-clipboard" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"></path><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"></path></svg>
-</button>
-</div>
-</div>
-</div>
-</div>
-<footer>
-<div class="footer-custom py-3 mt-5">
-<div class="container text-center">
-<p class="mb-1 text-white-50">© 2025 TMNTgram. All rights reserved.</p>
-<p class="mb-0 text-white-50">Developed by: Tamerlan Khassenov, Alikhan Sekenov, Aldiyar Bazarbayev, Aldiyar Gaisa</p>
-</div>
-</div>
-</footer>
-<script src="/src/scripts/homepage.js"></script>
-<script src="../../scripts/time.js"></script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/src/scripts/theme.js"></script>
-<script src="/src/scripts/validation.js"></script>
+    <!-- Navbar -->
+    <nav class="bg-tmnt-purple p-4 shadow-xl sticky top-0 z-40">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="homepage.html" id="brand" class="text-white text-2xl font-bold tracking-wider hover:text-tmnt-green transition-colors">TMNTgram</a>
+
+        <div class="hidden lg:flex items-center space-x-6" id="desktop-nav">
+          <a href="homepage.html" class="nav-link text-white flex items-center space-x-1 hover:text-tmnt-green transition-colors"><i data-lucide="home" class="w-5 h-5"></i><span>Home</span></a>
+          <a href="news.html" class="nav-link text-white flex items-center space-x-1 hover:text-tmnt-green transition-colors"><i data-lucide="zap" class="w-5 h-5"></i><span>Feed</span></a>
+          <a href="messages.html" class="nav-link text-white flex items-center space-x-1 hover:text-tmnt-green transition-colors"><i data-lucide="send" class="w-5 h-5"></i><span>DM</span></a>
+          <a href="explore.html" class="nav-link text-white flex items-center space-x-1 hover:text-tmnt-green transition-colors"><i data-lucide="search" class="w-5 h-5"></i><span>Explore</span></a>
+          <a href="add_post.html" class="nav-link text-white flex items-center space-x-1 hover:text-tmnt-green transition-colors"><i data-lucide="plus-circle" class="w-5 h-5"></i><span>Post</span></a>
+          <a href="friends.html" class="nav-link text-white flex items-center space-x-1 hover:text-tmnt-green transition-colors"><i data-lucide="users" class="w-5 h-5"></i><span>Friends</span></a>
+          <a href="profile.html" class="nav-link text-white flex items-center space-x-1 hover:text-tmnt-green transition-colors"><i data-lucide="user" class="w-5 h-5"></i><span>Profile</span></a>
+          <a href="#" id="auth-link" class="nav-link text-white flex items-center space-x-1 hover:text-tmnt-green transition-colors"></a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-full hover:bg-tmnt-green/30 transition-all" aria-label="Open menu">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile drawer -->
+    <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 right-0 bg-tmnt-purple/95 backdrop-blur-sm shadow-xl z-30">
+      <div class="flex flex-col p-4 space-y-2 text-white">
+        <a href="home.html" class="nav-link-mobile flex items-center space-x-2"><i data-lucide="home" class="w-5 h-5"></i><span>Home</span></a>
+        <a href="news.html" class="nav-link-mobile flex items-center space-x-2"><i data-lucide="zap" class="w-5 h-5"></i><span>News Feed</span></a>
+        <a href="messages.html" class="nav-link-mobile flex items-center space-x-2"><i data-lucide="send" class="w-5 h-5"></i><span>Direct Messages</span></a>
+        <a href="explore.html" class="nav-link-mobile flex items-center space-x-2"><i data-lucide="search" class="w-5 h-5"></i><span>Explore/Trending</span></a>
+        <a href="add_post.html" class="nav-link-mobile flex items-center space-x-2"><i data-lucide="plus-circle" class="w-5 h-5"></i><span>Create Post</span></a>
+        <a href="friends.html" class="nav-link-mobile flex items-center space-x-2"><i data-lucide="users" class="w-5 h-5"></i><span>Friends</span></a>
+        <a href="profile.html" class="nav-link-mobile flex items-center space-x-2"><i data-lucide="user" class="w-5 h-5"></i><span>Profile</span></a>
+        <a href="settings.html" class="nav-link-mobile flex items-center space-x-2"><i data-lucide="settings" class="w-5 h-5"></i><span>Settings</span></a>
+        <a href="#" id="auth-link-mobile" class="nav-link-mobile flex items-center space-x-2"></a>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <main id="content" class="flex-grow container mx-auto p-4 md:p-8">
+      <section class="text-center py-16">
+        <h1 class="text-5xl md:text-7xl font-bold text-tmnt-green mb-4">Welcome to TMNTgram</h1>
+        <p class="text-xl opacity-80 mb-8 max-w-2xl mx-auto">Your secure social network for ninjas, mutants, and sewer-based heroes. Cowabunga!</p>
+        <div class="space-x-4">
+          <a id="cta-primary" href="registration.html" class="animated-btn px-6 py-3 rounded-xl font-bold text-lg inline-block">Join Now</a>
+          <a id="cta-login" href="auth.html" class="animated-btn px-6 py-3 rounded-xl font-bold text-lg inline-block bg-tmnt-purple hover:bg-tmnt-purple/80" style="--accent-green: var(--accent-purple); --shadow-color: rgba(132, 94, 247, 0.4);">Login</a>
+        </div>
+      </section>
+
+      <section class="py-12">
+        <h2 class="text-4xl font-semibold mb-8 text-center text-tmnt-purple">Featured Allies</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="card p-6 text-center shadow-lg">
+            <div class="w-24 h-24 mx-auto mb-4 bg-blue-600 rounded-full flex items-center justify-center text-4xl text-white font-bold">L</div>
+            <h3 class="text-2xl font-semibold">Leonardo</h3>
+            <p class="opacity-75 text-sm">Always focused, posts tactical tips and katana maintenance guides.</p>
+          </div>
+          <div class="card p-6 text-center shadow-lg">
+            <div class="w-24 h-24 mx-auto mb-4 bg-purple-600 rounded-full flex items-center justify-center text-4xl text-white font-bold">D</div>
+            <h3 class="text-2xl font-semibold">Donatello</h3>
+            <p class="opacity-75 text-sm">Tech guru, posts groundbreaking inventions and science memes.</p>
+          </div>
+          <div class="card p-6 text-center shadow-lg">
+            <div class="w-24 h-24 mx-auto mb-4 bg-red-600 rounded-full flex items-center justify-center text-4xl text-white font-bold">R</div>
+            <h3 class="text-2xl font-semibold">Raphael</h3>
+            <p class="opacity-75 text-sm">The tough guy, shares candid photos of city life and workout routines.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-auto bg-tmnt-dark p-4 text-center text-gray-400">
+      <div class="container mx-auto">
+        <p class="text-sm">&copy; 2025 TMNTgram. All rights reserved. | Powered by OMDb API</p>
+        <p class="text-xs mt-1">Developed for the next generation of sewer dwellers.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Toast container -->
+  <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
+
+  <!-- Page specific JS -->
+  <script src="/src/scripts/homepage.js"></script>
 </body>
 </html>

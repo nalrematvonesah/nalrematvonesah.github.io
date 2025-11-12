@@ -1,4 +1,4 @@
-/* friends.js — simple friend list behavior */
+/* create-post.js — handles post creation form and feedback */
 
 const CURRENT_USER_KEY = 'tmnt_current_user';
 let currentUser = JSON.parse(localStorage.getItem(CURRENT_USER_KEY)) || null;
@@ -14,7 +14,7 @@ function showToast(message, type = 'bg-tmnt-green') {
   setTimeout(() => { toast.classList.add('opacity-0'); setTimeout(()=>toast.remove(),300); }, 4000);
 }
 
-/* Auth */
+/* Auth links */
 function updateAuthLink() {
   const authLink = document.getElementById('auth-link');
   const authLinkMobile = document.getElementById('auth-link-mobile');
@@ -29,18 +29,28 @@ function updateAuthLink() {
 }
 function handleLogout() {
   localStorage.removeItem(CURRENT_USER_KEY);
-  showToast('You have logged out.', 'bg-tmnt-green');
+  showToast('Logged out successfully.', 'bg-tmnt-green');
   setTimeout(()=>window.location.href='home.html',500);
 }
 
-/* Friend actions */
-function messageFriend(name) {
-  showToast(`Opening DM with ${name}...`, 'bg-tmnt-purple');
-  setTimeout(()=>window.location.href='messages.html',800);
-}
+/* Post creation */
+function handleCreatePost(e) {
+  e.preventDefault();
+  const title = document.getElementById('title').value.trim();
+  const content = document.getElementById('content-field').value.trim();
+  const tags = document.getElementById('tags').value.trim();
 
-function findAllies() {
-  showToast('Scanning sewers for new allies...', 'bg-tmnt-green');
+  if (!title || !content) {
+    showToast('Post title and content are required.', 'bg-red-500');
+    return;
+  }
+
+  const preview = content.length > 60 ? content.substring(0,60) + "..." : content;
+  const msg = `New Post Created!\nTitle: "${title}"\n${preview}`;
+  console.log(msg);
+
+  showToast('Post successfully published to the sewer network!', 'bg-tmnt-green');
+  document.getElementById('createPostForm').reset();
 }
 
 /* Mobile menu */
@@ -52,9 +62,9 @@ if (mobileMenuBtn && mobileMenu)
 /* Init */
 document.addEventListener('DOMContentLoaded', () => {
   updateAuthLink();
+  const form = document.getElementById('createPostForm');
+  if (form) form.addEventListener('submit', handleCreatePost);
 });
 
 window.showToast = showToast;
 window.handleLogout = handleLogout;
-window.messageFriend = messageFriend;
-window.findAllies = findAllies;

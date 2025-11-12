@@ -1,6 +1,7 @@
-@import url('homepage.css'); /* Reuse core theme, buttons, cards, etc. */
+@import url('homepage.css');
 
-/* You can override or add feed-specific styles here */
+/* Page-specific accent adjustments */
+h2.text-tmnt-purple { color: var(--accent-purple); }
 
 #omdb-results img {
   height: 250px;

@@ -1,4 +1,4 @@
-/* friends.js — simple friend list behavior */
+/* settings.js — theme and notification toggles */
 
 const CURRENT_USER_KEY = 'tmnt_current_user';
 let currentUser = JSON.parse(localStorage.getItem(CURRENT_USER_KEY)) || null;
@@ -14,7 +14,7 @@ function showToast(message, type = 'bg-tmnt-green') {
   setTimeout(() => { toast.classList.add('opacity-0'); setTimeout(()=>toast.remove(),300); }, 4000);
 }
 
-/* Auth */
+/* Auth links */
 function updateAuthLink() {
   const authLink = document.getElementById('auth-link');
   const authLinkMobile = document.getElementById('auth-link-mobile');
@@ -29,18 +29,36 @@ function updateAuthLink() {
 }
 function handleLogout() {
   localStorage.removeItem(CURRENT_USER_KEY);
-  showToast('You have logged out.', 'bg-tmnt-green');
+  showToast('Logged out successfully.', 'bg-tmnt-green');
   setTimeout(()=>window.location.href='home.html',500);
 }
 
-/* Friend actions */
-function messageFriend(name) {
-  showToast(`Opening DM with ${name}...`, 'bg-tmnt-purple');
-  setTimeout(()=>window.location.href='messages.html',800);
+/* Theme */
+function applyTheme(theme) {
+  if (theme === 'light') {
+    document.documentElement.classList.remove('dark');
+    document.documentElement.classList.add('light');
+  } else {
+    document.documentElement.classList.remove('light');
+    document.documentElement.classList.add('dark');
+  }
+  localStorage.setItem('tmnt_theme', theme);
+}
+function toggleTheme(e) {
+  const newTheme = e.target.checked ? 'dark' : 'light';
+  applyTheme(newTheme);
+  showToast(`${newTheme === 'dark' ? 'Dark' : 'Light'} mode enabled!`);
 }
 
-function findAllies() {
-  showToast('Scanning sewers for new allies...', 'bg-tmnt-green');
+/* Notifications */
+function toggleNotif(e) {
+  const on = e.target.checked;
+  showToast(on ? 'Notifications enabled!' : 'Notifications disabled.', on ? 'bg-tmnt-green' : 'bg-red-500');
+}
+
+/* Deactivate mock */
+function deactivateAccount() {
+  showToast('If this were real, your account would be deactivated.', 'bg-red-500');
 }
 
 /* Mobile menu */
@@ -52,9 +70,18 @@ if (mobileMenuBtn && mobileMenu)
 /* Init */
 document.addEventListener('DOMContentLoaded', () => {
   updateAuthLink();
+
+  // Set theme switch based on saved preference
+  const savedTheme = localStorage.getItem('tmnt_theme') || 'dark';
+  applyTheme(savedTheme);
+  const themeSwitch = document.getElementById('theme-switch');
+  if (themeSwitch) themeSwitch.checked = savedTheme === 'dark';
+  themeSwitch.addEventListener('change', toggleTheme);
+
+  // Notifications
+  const notifSwitch = document.getElementById('notif-switch');
+  if (notifSwitch) notifSwitch.addEventListener('change', toggleNotif);
 });
 
 window.showToast = showToast;
 window.handleLogout = handleLogout;
-window.messageFriend = messageFriend;
-window.findAllies = findAllies;

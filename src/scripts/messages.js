@@ -1,4 +1,4 @@
-/* friends.js — simple friend list behavior */
+/* messages.js — chat UI behavior and small helpers */
 
 const CURRENT_USER_KEY = 'tmnt_current_user';
 let currentUser = JSON.parse(localStorage.getItem(CURRENT_USER_KEY)) || null;
@@ -14,7 +14,7 @@ function showToast(message, type = 'bg-tmnt-green') {
   setTimeout(() => { toast.classList.add('opacity-0'); setTimeout(()=>toast.remove(),300); }, 4000);
 }
 
-/* Auth */
+/* Auth link */
 function updateAuthLink() {
   const authLink = document.getElementById('auth-link');
   const authLinkMobile = document.getElementById('auth-link-mobile');
@@ -29,18 +29,24 @@ function updateAuthLink() {
 }
 function handleLogout() {
   localStorage.removeItem(CURRENT_USER_KEY);
-  showToast('You have logged out.', 'bg-tmnt-green');
+  showToast('Logged out successfully.', 'bg-tmnt-green');
   setTimeout(()=>window.location.href='home.html',500);
 }
 
-/* Friend actions */
-function messageFriend(name) {
-  showToast(`Opening DM with ${name}...`, 'bg-tmnt-purple');
-  setTimeout(()=>window.location.href='messages.html',800);
-}
+/* Chat send simulation */
+function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if (!text) return;
+  const chat = document.querySelector('.chat-area');
 
-function findAllies() {
-  showToast('Scanning sewers for new allies...', 'bg-tmnt-green');
+  const msgDiv = document.createElement('div');
+  msgDiv.className = 'msg msg-out';
+  msgDiv.textContent = text;
+  chat.appendChild(msgDiv);
+  input.value = '';
+  chat.scrollTop = chat.scrollHeight;
+  showToast('Message sent to Raphael!', 'bg-tmnt-green');
 }
 
 /* Mobile menu */
@@ -52,9 +58,11 @@ if (mobileMenuBtn && mobileMenu)
 /* Init */
 document.addEventListener('DOMContentLoaded', () => {
   updateAuthLink();
+  const sendBtn = document.getElementById('send-btn');
+  const input = document.getElementById('chat-input');
+  if (sendBtn) sendBtn.addEventListener('click', sendMessage);
+  if (input) input.addEventListener('keydown', e => { if (e.key === 'Enter') sendMessage(); });
 });
 
 window.showToast = showToast;
 window.handleLogout = handleLogout;
-window.messageFriend = messageFriend;
-window.findAllies = findAllies;
