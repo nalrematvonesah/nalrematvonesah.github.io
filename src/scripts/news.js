@@ -1,6 +1,6 @@
 /* news.js — handles OMDb search, rendering results, and basic UI */
 
-const OMDb_API_KEY = 'f994f279';
+const OMDb_API_KEY = '969271b1';
 const LAST_SEARCH_KEY = 'tmnt_last_search_results';
 const CURRENT_USER_KEY = 'tmnt_current_user';
 const contentDiv = document.getElementById('content');

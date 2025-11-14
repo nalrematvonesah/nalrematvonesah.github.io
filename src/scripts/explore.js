@@ -33,7 +33,7 @@ function updateAuthLink() {
 function handleLogout() {
   localStorage.removeItem(CURRENT_USER_KEY);
   showToast('Logged out.', 'bg-tmnt-green');
-  setTimeout(()=>window.location.href='home.html',500);
+  setTimeout(()=>window.location.href='homepage.html',500);
 }
 
 /* OMDb search */
