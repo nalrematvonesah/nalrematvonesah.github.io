@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMNTgram - Authentication Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'tmnt-green': '#1DB954',
+                        'tmnt-purple': '#845EF7',
+                        'tmnt-dark': '#121212',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #1D1D1D;
+            --text-primary: #F8F9FA;
+            --accent-green: #1DB954;
+            --border-color: #3D3D3D;
+        }
+
+        .light {
+            --bg-primary: #F8F9FA;
+            --bg-secondary: #FFFFFF;
+            --text-primary: #121212;
+            --accent-green: #10B981;
+            --border-color: #E9ECEF;
+        }
+
+        .card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .input-field {
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+            width: 100%;
+            transition: border-color 0.3s;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--accent-green);
+        }
+
+        .error-message {
+            color: #EF4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .animated-btn {
+            background-color: var(--accent-green);
+            color: var(--bg-secondary);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px var(--shadow-color, rgba(29, 185, 84, 0.4));
+            border: none;
+        }
+
+        .animated-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 12px -2px var(--shadow-color, rgba(29, 185, 84, 0.6));
+        }
+
+        .animated-btn.purple {
+            background-color: #845EF7;
+            --shadow-color: rgba(132, 94, 247, 0.4);
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="dark bg-tmnt-dark text-tmnt-light">
+    <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
+
+    <div id="auth-container" class="w-full max-w-lg p-4">
+        <h1 class="text-4xl font-bold text-center mb-8 text-tmnt-green">TMNTgram Access</h1>
+
+        <div id="auth-content"></div>
+    </div>
+
+    <script>
+        const USERS_KEY = 'tmnt_users';
+        const CURRENT_USER_KEY = 'tmnt_current_user';
+        const AUTH_CONTAINER = document.getElementById('auth-container');
+
+        let users = JSON.parse(localStorage.getItem(USERS_KEY)) || [];
+        let currentUser = JSON.parse(localStorage.getItem(CURRENT_USER_KEY)) || null;
+
+        let authContentDiv = document.getElementById('auth-content');
+
+        function showToast(message, type = 'bg-tmnt-green') {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+
+            const toast = document.createElement('div');
+            toast.className = `p-4 rounded-xl shadow-lg text-white ${type} max-w-sm flex justify-between items-center opacity-0 transition-opacity duration-300`;
+            toast.innerHTML = `<span>${message}</span>`;
+
+            container.prepend(toast);
+
+            setTimeout(() => toast.classList.remove('opacity-0'), 10);
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        function validateForm(form) {
+            let isValid = true;
+            const errorMessages = form.querySelectorAll('.error-message');
+            errorMessages.forEach(el => el.textContent = '');
+
+            if (form.id === 'registrationForm') {
+                const email = form.email.value;
+                const password = form.password.value;
+                const confirmPassword = form.confirmPassword.value;
+
+                const requiredFields = [form.name, form.email, form.password, form.confirmPassword];
+                requiredFields.forEach(field => {
+                    if (!field || !field.value.trim()) {
+                        document.getElementById(`${field.id}-error`).textContent = 'This field is required.';
+                        isValid = false;
+                    }
+                });
+
+                if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    document.getElementById('email-error').textContent = 'Invalid email format.';
+                    isValid = false;
+                }
+
+                const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+                if (password && !passwordRegex.test(password)) {
+                    document.getElementById('password-error').textContent = 'Must be 8+ chars, incl. upper, lower, and number.';
+                    isValid = false;
+                } else if (password !== confirmPassword) {
+                    document.getElementById('confirmPassword-error').textContent = 'Passwords do not match.';
+                    isValid = false;
+                }
+            }
+            return isValid;
+        }
+
+        function handleSignUp(event) {
+            event.preventDefault();
+            const form = event.target;
+            if (!validateForm(form)) return;
+
+            const name = form.name.value;
+            const email = form.email.value;
+            const password = form.password.value;
+
+            if (users.some(user => user.email === email)) {
+                document.getElementById('email-error').textContent = 'Account already exists with this email.';
+                showToast('Registration failed: Email already in use.', 'bg-red-500');
+                return;
+            }
+
+            const newUser = { 
+                id: Date.now(), 
+                name, 
+                email, 
+                password, 
+                bio: 'A fresh recruit to the sewer network.',
+            };
+            users.push(newUser);
+            localStorage.setItem(USERS_KEY, JSON.stringify(users));
+            showToast('Registration successful! Please log in.', 'bg-tmnt-green');
+            renderLogin();
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const form = event.target;
+            const email = form.email.value;
+            const password = form.password.value;
+
+            const user = users.find(u => u.email === email && u.password === password);
+
+            if (user) {
+                currentUser = user;
+                localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(user));
+                showToast(`Welcome, ${user.name.split(' ')[0]}! Logged in successfully. Redirecting...`, 'bg-tmnt-purple');
+                window.location.href = 'homepage.html';
+            } else {
+                showToast('Login failed: Invalid email or password.', 'bg-red-500');
+            }
+        }
+
+        function renderLogin() {
+            if (!authContentDiv) return;
+            authContentDiv.innerHTML = `
+                <div class="max-w-md mx-auto">
+                    <h2 class="text-3xl font-semibold text-center mb-6 text-tmnt-purple">Ninja Login</h2>
+                    <form id="loginForm" class="card p-8 space-y-4" onsubmit="handleLogin(event)">
+                        <label class="block">
+                            <span class="text-sm font-semibold block mb-1">Email Address:</span>
+                            <input type="email" id="loginEmail" name="email" class="input-field" placeholder="example@tmnt.com" required>
+                        </label>
+                        <label class="block">
+                            <span class="text-sm font-semibold block mb-1">Password:</span>
+                            <input type="password" id="loginPassword" name="password" class="input-field" placeholder="Secret Password" required>
+                        </label>
+                        <button type="submit" class="animated-btn w-full px-4 py-3 rounded-lg font-bold text-lg mt-4">
+                            Access Sewer Network
+                        </button>
+                        <p class="text-center text-sm opacity-75 pt-2">
+                            Need access? <a href="#" onclick="renderRegistration()" class="text-tmnt-green font-semibold hover:underline transition-colors">Register here.</a>
+                        </p>
+                    </form>
+                </div>
+            `;
+        }
+
+        function renderRegistration() {
+            if (!authContentDiv) return;
+            authContentDiv.innerHTML = `
+                <div class="max-w-lg mx-auto">
+                    <h2 class="text-3xl font-semibold text-center mb-6 text-tmnt-green">New Ninja Registration</h2>
+                    <form id="registrationForm" class="card p-8 space-y-4" onsubmit="handleSignUp(event)">
+                        <label class="block">
+                            <span class="text-sm font-semibold block mb-1">Full Name *</span>
+                            <input type="text" id="name" name="name" class="input-field" required>
+                            <div id="name-error" class="error-message"></div>
+                        </label>
+                        <label class="block">
+                            <span class="text-sm font-semibold block mb-1">Email Address *</span>
+                            <input type="email" id="email" name="email" class="input-field" placeholder="example@tmnt.com" required>
+                            <div id="email-error" class="error-message"></div>
+                        </label>
+                        <label class="block">
+                            <span class="text-sm font-semibold block mb-1">Password * (Min 8 chars, 1 upper, 1 lower, 1 num)</span>
+                            <input type="password" id="password" name="password" class="input-field" required>
+                            <div id="password-error" class="error-message"></div>
+                        </label>
+                        <label class="block">
+                            <span class="text-sm font-semibold block mb-1">Confirm Password *</span>
+                            <input type="password" id="confirmPassword" name="confirmPassword" class="input-field" required>
+                            <div id="confirmPassword-error" class="error-message"></div>
+                        </label>
+                        <button type="submit" class="animated-btn w-full px-4 py-3 rounded-lg font-bold text-lg mt-4 purple">
+                            Sign Up
+                        </button>
+                        <p class="text-center text-sm opacity-75 pt-2">
+                            Already registered? <a href="#" onclick="renderLogin()" class="text-tmnt-purple font-semibold hover:underline transition-colors">Go to Login.</a>
+                        </p>
+                    </form>
+                </div>
+            `;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (currentUser) {
+                window.location.href = 'homepage.html';
+            } else {
+                renderLogin();
+            }
+        });
+    </script>
+</body>
+</html>

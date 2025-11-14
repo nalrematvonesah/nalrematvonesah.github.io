@@ -1,0 +1,75 @@
+body {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+:root {
+    --bg-primary: #121212;
+    --bg-secondary: #1D1D1D;
+    --text-primary: #F8F9FA;
+    --accent-green: #1DB954;
+    --border-color: #3D3D3D;
+}
+
+.light {
+    --bg-primary: #F8F9FA;
+    --bg-secondary: #FFFFFF;
+    --text-primary: #121212;
+    --accent-green: #10B981;
+    --border-color: #E9ECEF;
+}
+
+/* Generic card and input styles */
+.card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+.input-field {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--accent-green);
+}
+
+.error-message {
+    color: #EF4444; /* Tailwind Red-500 */
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Animated Button Styling */
+.animated-btn {
+    background-color: var(--accent-green);
+    color: var(--bg-secondary);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px var(--shadow-color, rgba(29, 185, 84, 0.4));
+    border: none;
+}
+
+.animated-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 12px -2px var(--shadow-color, rgba(29, 185, 84, 0.6));
+}
+
+.animated-btn.purple {
+    background-color: #845EF7;
+    --shadow-color: rgba(132, 94, 247, 0.4);
+    color: white;
+}
