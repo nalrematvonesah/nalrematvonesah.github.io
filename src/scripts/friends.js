@@ -20,7 +20,7 @@ function updateAuthLink() {
   const authLinkMobile = document.getElementById('auth-link-mobile');
   const text = currentUser ? 'Logout' : 'Login';
   const icon = currentUser ? 'log-out' : 'user';
-  const action = currentUser ? 'handleLogout()' : "window.location.href='auth.html'";
+  const action = currentUser ? 'handleLogout()' : "window.location.href='auth_portal.html'";
   [authLink, authLinkMobile].forEach(link=>{
     if(!link) return;
     link.innerHTML = `<i data-lucide="${icon}" class="w-5 h-5"></i><span>${text}</span>`;
@@ -30,7 +30,7 @@ function updateAuthLink() {
 function handleLogout() {
   localStorage.removeItem(CURRENT_USER_KEY);
   showToast('You have logged out.', 'bg-tmnt-green');
-  setTimeout(()=>window.location.href='home.html',500);
+  setTimeout(()=>window.location.href='homepage.html',500);
 }
 
 /* Friend actions */

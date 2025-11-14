@@ -51,7 +51,7 @@ function updateAuthLink() {
   }
   if (authLinkMobile) {
     authLinkMobile.innerHTML = `<i data-lucide="${icon}" class="w-5 h-5"></i><span>${text}</span>`;
-    authLinkMobile.setAttribute('href', currentUser ? '#' : 'auth.html');
+    authLinkMobile.setAttribute('href', currentUser ? '#' : 'auth_portal.html');
     authLinkMobile.setAttribute('onclick', currentUser ? 'handleLogoutFromHome()' : '');
   }
 }

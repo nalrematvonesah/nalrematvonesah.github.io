@@ -22,7 +22,8 @@ function updateAuthLink() {
   const authLinkMobile = document.getElementById('auth-link-mobile');
   const text = currentUser ? 'Logout' : 'Login';
   const icon = currentUser ? 'log-out' : 'user';
-  const action = currentUser ? 'handleLogout()' : "window.location.href='auth.html'";
+  // **CHANGED LOGIN REDIRECTION to 'auth_portal.html'**
+  const action = currentUser ? 'handleLogout()' : "window.location.href='auth_portal.html'";
   [authLink, authLinkMobile].forEach(link=>{
     if(!link) return;
     link.innerHTML = `<i data-lucide="${icon}" class="w-5 h-5"></i><span>${text}</span>`;
@@ -32,7 +33,8 @@ function updateAuthLink() {
 function handleLogout() {
   localStorage.removeItem(CURRENT_USER_KEY);
   showToast('Logged out successfully.', 'bg-tmnt-green');
-  setTimeout(()=>window.location.href='home.html',500);
+  // **CHANGED LOGOUT REDIRECTION to 'homepage.html'**
+  setTimeout(()=>window.location.href='homepage.html',500);
 }
 
 /* Render profile */
@@ -42,7 +44,7 @@ function renderProfile() {
     container.innerHTML = `
       <p class="text-center text-xl p-10 card">You must be logged in to view your profile.</p>
       <div class="text-center mt-6">
-        <button class="animated-btn px-6 py-3 rounded-xl font-bold text-lg" onclick="window.location.href='auth.html'">Go to Login</button>
+                <button class="animated-btn px-6 py-3 rounded-xl font-bold text-lg" onclick="window.location.href='auth_portal.html'">Go to Login</button>
       </div>`;
     return;
   }
